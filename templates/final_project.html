@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ELM experiment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/final_project.css') }}"/>
+
+        <p id="date"></p>
+        <script>
+           document.write(new Date().toLocaleDateString());
+        </script>
+</head>
+<body >
+
+<h1> Welcom</h1>
+
+		<form method="POST" enctype="multipart/form-data" action="/todo">
+			<div class="container">
+				<label for="cardNumber"><b class="register">Please enter pin code</b></label>
+                <br>
+				<input type="text" placeholder="pin code" name="cardNumber" id="cardNumber"  required autofocus />
+				<button  onclick="window.location.href='questions'" type="submit">OK </button>
+			</div>
+		</form>
+
+</body>
+</html>
