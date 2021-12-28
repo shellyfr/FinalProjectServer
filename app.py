@@ -22,5 +22,10 @@ def log():
     return render_template("arguments.html")
 
 
+@app.route('/position')
+def position():
+    return render_template("position.html")
+
+
 if __name__ == '__main__':
     app.run()

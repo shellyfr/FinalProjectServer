@@ -7,17 +7,9 @@
 </head>
 <body>
     <h1><b>Please answer the following questions:</b></h1>
+    <h2>General and demographic questions:</h2>
     <form>
-        <h2>What gender do you identify as?</h2>
-        <input type="radio" id="female" name="gender" value="female">
-        <label for="female">Female</label><br>
-        <input type="radio" id="male" name="gender" value="male">
-        <label for="male">Male</label><br>
-        <input type="radio" id="other" name="gender" value="other">
-        <label for="other">Other</label><br>
-    </form>
-    <form>
-        <h2>What is your age?</h2>
+        <h3>What is your age?</h3>
         <input type="radio" id="20" name="age" value="20">
         <label for="20">20-29</label><br>
         <input type="radio" id="30" name="age" value="30">
@@ -27,10 +19,23 @@
         <input type="radio" id="50" name="age" value="50">
         <label for="50">50+</label><br>
     </form>
-     <form>
-        <h2>What is the highest degree or level of education you have completed?</h2>
+    <form>
+        <h3>What gender do you identify as?</h3>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label><br>
+        <input type="radio" id="other" name="gender" value="other">
+        <label for="other">Other</label><br>
+    </form>
+    <form>
+        <h3>What is the highest degree or level of education you have completed?</h3>
+        <input type="radio" id="elementary" name="education" value="elementary">
+        <label for="elementary">Elementary</label><br>
         <input type="radio" id="school" name="education" value="school">
         <label for="school">High School</label><br>
+        <input type="radio" id="professional" name="education" value="professional">
+        <label for="professional">Professional</label><br>
         <input type="radio" id="bachelor" name="education" value="bachelor">
         <label for="bachelor">Bachelor's Degree</label><br>
         <input type="radio" id="master" name="education" value="master">
@@ -38,21 +43,8 @@
         <input type="radio" id="phd" name="education" value="phd">
         <label for="phd">Ph.D. or higher</label><br>
     </form>
-     <form>
-        <h2>What is your marital status?</h2>
-        <input type="radio" id="single" name="marital" value="single">
-        <label for="single">Single (never married)</label><br>
-        <input type="radio" id="married" name="marital" value="married">
-        <label for="married">Married</label><br>
-        <input type="radio" id="partnership" name="marital" value="partnership">
-        <label for="partnership">In a domestic partnership</label><br>
-        <input type="radio" id="divorced" name="marital" value="divorced">
-        <label for="divorced">Divorced</label><br>
-        <input type="radio" id="widowed" name="marital" value="widowed">
-        <label for="widowed">Widowed</label><br>
-    </form>
-     <form>
-        <h2>What is your annual household income?</h2>
+    <form>
+        <h3>What is your annual household income?</h3>
         <input type="radio" id="0" name="income" value="0">
         <label for="0">0-$25,000</label><br>
         <input type="radio" id="25" name="income" value="25">
@@ -63,7 +55,7 @@
         <label for="100">$100,000+</label><br>
     </form>
     <form>
-        <h2What is your current employment status?</h2>
+        <h3>What is your current employment status?</h3>
         <input type="radio" id="full" name="employment" value="full">
         <label for="full">Employed Full-Time</label><br>
         <input type="radio" id="part" name="employment" value="part">
@@ -73,12 +65,151 @@
         <input type="radio" id="retired" name="employment" value="retired">
         <label for="retired">Retired</label><br>
     </form>
+    <form>
+        <h3>How many hours a day do you on average use a computer (not for work)?</h3>
+        <input type="radio" id="0computer" name="computer" value="0computer">
+        <label for="0computer">0-2</label><br>
+        <input type="radio" id="2" name="computer" value="2">
+        <label for="2">2-4</label><br>
+        <input type="radio" id="4" name="computer" value="4">
+        <label for="4">4+</label><br>
+    </form>
+    <form>
+        <h3>How many hours a day on average do you use a cell phone (not for work)?</h3>
+        <input type="radio" id="0computer" name="phone" value="0computer">
+        <label for="0computer">0-2</label><br>
+        <input type="radio" id="2" name="phone" value="2">
+        <label for="2">2-4</label><br>
+        <input type="radio" id="4" name="phone" value="4">
+        <label for="4">4+</label><br>
+    </form>
+    <br>
+    <br>
+    <h2>General questions about the environment in which you performed the experiment:</h2>
+    <form>
+        <h3>Are you in a closed or open space?</h3>
+        <input type="radio" id="closed" name="space" value="closed">
+        <label for="closed">closed</label><br>
+        <input type="radio" id="open" name="space" value="open">
+        <label for="open">open</label><br>
+    </form>
+        <h3>On a scale of 1 to 7, rate the environment you are in<br>
+        (where 1 represents "closed space" and 7 represents "open space")</h3>
+        <input type="radio" id="1" name="space_scale" value="1">
+        <label for="1">1</label>
+        <input type="radio" id="2" name="space_scale" value="2">
+        <label for="2">2</label>
+        <input type="radio" id="3" name="space_scale" value="3">
+        <label for="3">3</label>
+        <input type="radio" id="4" name="space_scale" value="4">
+        <label for="4">4</label>
+        <input type="radio" id="5" name="space_scale" value="5">
+        <label for="5">5</label>
+        <input type="radio" id="6" name="space_scale" value="6">
+        <label for="6">6</label>
+        <input type="radio" id="7" name="space_scale" value="7">
+        <label for="7">7</label>
+    </form>
+    <form>
+        <h3>Are you in a private or public space? <br>
+            On a scale of 1 to 7, rate the environment you are in <br>
+            (where 1 represents "private space" and 7 represents "public space")</h3>
+        <input type="radio" id="1" name="space_private" value="1">
+        <label for="1">1</label>
+        <input type="radio" id="2" name="space_private" value="2">
+        <label for="2">2</label>
+        <input type="radio" id="3" name="space_private" value="3">
+        <label for="3">3</label>
+        <input type="radio" id="4" name="space_private" value="4">
+        <label for="4">4</label>
+        <input type="radio" id="5" name="space_private" value="5">
+        <label for="5">5</label>
+        <input type="radio" id="6" name="space_private" value="6">
+        <label for="6">6</label>
+        <input type="radio" id="7" name="space_private" value="7">
+        <label for="7">7</label>
+    </form>
+    <form>
+        <h3>Are you in a large or small space?<br>
+            On a scale of 1 to 7, rate the size of the environment you are in <br>
+            (where 1 represents "smallest" and 7 represents "largest")</h3>
+        <input type="radio" id="1" name="space_size" value="1">
+        <label for="1">1</label>
+        <input type="radio" id="2" name="space_size" value="2">
+        <label for="2">2</label>
+        <input type="radio" id="3" name="space_size" value="3">
+        <label for="3">3</label>
+        <input type="radio" id="4" name="space_size" value="4">
+        <label for="4">4</label>
+        <input type="radio" id="5" name="space_size" value="5">
+        <label for="5">5</label>
+        <input type="radio" id="6" name="space_size" value="6">
+        <label for="6">6</label>
+        <input type="radio" id="7" name="space_size" value="7">
+        <label for="7">7</label>
+    </form>
 
+    <h2>Questions about environmental disturbances:</h2>
+    <form>
+        <h3>On a scale of 1 to 7, rate the noise around you <br>
+            (where 1 represents "not noisy at all" and 7 represents "extremely noisy").</h3>
+        <input type="radio" id="1" name="noise" value="1">
+        <label for="1">1</label>
+        <input type="radio" id="2" name="noise" value="2">
+        <label for="2">2</label>
+        <input type="radio" id="3" name="noise" value="3">
+        <label for="3">3</label>
+        <input type="radio" id="4" name="noise" value="4">
+        <label for="4">4</label>
+        <input type="radio" id="5" name="noise" value="5">
+        <label for="5">5</label>
+        <input type="radio" id="6" name="noise" value="6">
+        <label for="6">6</label>
+        <input type="radio" id="7" name="noise" value="7">
+        <label for="7">7</label>
+    </form>
+    <form>
+        <h3>On a scale of 1 to 7, rate the level of darkness around you <br>
+            (where 1 represents "not dark at all" and 7 represents "extremely dark").</h3>
+        <input type="radio" id="1" name="dark" value="1">
+        <label for="1">1</label>
+        <input type="radio" id="2" name="dark" value="2">
+        <label for="2">2</label>
+        <input type="radio" id="3" name="dark" value="3">
+        <label for="3">3</label>
+        <input type="radio" id="4" name="dark" value="4">
+        <label for="4">4</label>
+        <input type="radio" id="5" name="dark" value="5">
+        <label for="5">5</label>
+        <input type="radio" id="6" name="dark" value="6">
+        <label for="6">6</label>
+        <input type="radio" id="7" name="dark" value="7">
+        <label for="7">7</label>
+    </form>
+    <form>
+        <h3>On a scale of 1 to 7, rate the density of the people around you <br>
+            (where 1 represents "not crowded at all" and 7 represents "extremely crowded").</h3>
+        <input type="radio" id="1" name="density" value="1">
+        <label for="1">1</label>
+        <input type="radio" id="2" name="density" value="2">
+        <label for="2">2</label>
+        <input type="radio" id="3" name="density" value="3">
+        <label for="3">3</label>
+        <input type="radio" id="4" name="density" value="4">
+        <label for="4">4</label>
+        <input type="radio" id="5" name="density" value="5">
+        <label for="5">5</label>
+        <input type="radio" id="6" name="density" value="6">
+        <label for="6">6</label>
+        <input type="radio" id="7" name="density" value="7">
+        <label for="7">7</label>
+    </form>
 
     <br>
     <br>
     <br>
+    <button  onclick="window.location.href='position.html'" type="submit">NEXT </button>
     <br>
-    <button  onclick="window.location.href='arguments'" type="submit">NEXT </button>
+    <br>
 </body>
 </html>
