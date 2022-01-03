@@ -12,6 +12,11 @@ def home():
     return render_template("final_project.html")
 
 
+@app.route('/consent')
+def consent():
+    return render_template("consent.html")
+
+
 @app.route('/questions')
 def ques():
     return render_template("questions.html")

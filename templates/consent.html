@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/questions.css') }}"/>
+</head>
+<body>
+    <h1>Consent Form</h1>
+    <h3>Purpose:</h3>
+    <p> You are being asked to participate in a decision-making  study being conducted by <br>
+        Rotem Sarusi , Anna Pertzovski, Shelly Frumkin under the guidance of Associate <br>
+        Professor Lior Fink and PHD candidate Naana Ilany-Tzur from the IEM Department of Ben Gurion University, Israel.<br>
+        Participation is voluntary. </p>
+    <h3>Approval:</h3>
+    <p>The experiment has been approved by Ben-Gurion University’s ethics committee.</p>
+    <h3>Procedures:</h3>
+    <p> If you choose to be in the study, you will complete a digital experiment. All the questions are mandatory.<br>
+        The survey will take about 15 minutes to complete.</p>
+    <h3> Confidentiality:</h3>
+    <p> Your Mechanical Turk Worker ID will be used to distribute the payment to you,but we will not store your worker ID<br>
+        with your survey responses. Please be aware that your Mturk Workers ID can potentially be linked to information<br>
+        about you on your Amazon Public Profile page, however we will not access any personally identifying information from your Amazon Public Profile.</p>
+    <h3>Costs/Payments:</h3>
+    <p>Upon completion of the experiment, you will reach a completion page in which you will receive a verification code.<br>
+        This code will verify that you completed the experiment in Amazon Mechanical Turk so that you will receive credit for this task.</p>
+    <h3>Contact Information:</h3>
+    <p>If you have questions about the research, you can contact us with email:<br>
+        annaper@post.bgu.ac.il or sarrot@post.bgu.ac.il</p>
+    <p>ELECTRONIC CONSENT:<br>
+        Please select your choice below. You may print a copy of this consent form for your records.<br>
+        Clicking on the “Agree” button indicates that:<br>
+        •	You have read the above information<br>
+        •	You voluntarily agree to participate<br>
+    </p>
+    <form>
+        <input type="radio" id="agree" name="consent" value="agree">
+        <label for="agree">Agree</label><br>
+        <input type="radio" id="disagree" name="consent" value="disagree">
+        <label for="disagree">Disagree</label><br>
+    </form>
+    <br>
+    <button  onclick="window.location.href='questions'" type="submit">NEXT </button>
+
+</body>
+</html>
