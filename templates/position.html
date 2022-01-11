@@ -6,79 +6,83 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/questions.css') }}"/>
 </head>
 <body>
-    <h1><b>Please answer the following questions:</b></h1>
-    <form>
-        <h2>What gender do you identify as?</h2>
-        <input type="radio" id="female" name="gender" value="female">
-        <label for="female">Female</label><br>
-        <input type="radio" id="male" name="gender" value="male">
-        <label for="male">Male</label><br>
-        <input type="radio" id="other" name="gender" value="other">
-        <label for="other">Other</label><br>
-    </form>
-    <form>
-        <h2>What is your age?</h2>
-        <input type="radio" id="20" name="age" value="20">
-        <label for="20">20-29</label><br>
-        <input type="radio" id="30" name="age" value="30">
-        <label for="30">30-39</label><br>
-        <input type="radio" id="40" name="age" value="40">
-        <label for="40">40-49</label><br>
-        <input type="radio" id="50" name="age" value="50">
-        <label for="50">50+</label><br>
-    </form>
-     <form>
-        <h2>What is the highest degree or level of education you have completed?</h2>
-        <input type="radio" id="school" name="education" value="school">
-        <label for="school">High School</label><br>
-        <input type="radio" id="bachelor" name="education" value="bachelor">
-        <label for="bachelor">Bachelor's Degree</label><br>
-        <input type="radio" id="master" name="education" value="master">
-        <label for="master">Master's Degree</label><br>
-        <input type="radio" id="phd" name="education" value="phd">
-        <label for="phd">Ph.D. or higher</label><br>
-    </form>
-     <form>
-        <h2>What is your marital status?</h2>
-        <input type="radio" id="single" name="marital" value="single">
-        <label for="single">Single (never married)</label><br>
-        <input type="radio" id="married" name="marital" value="married">
-        <label for="married">Married</label><br>
-        <input type="radio" id="partnership" name="marital" value="partnership">
-        <label for="partnership">In a domestic partnership</label><br>
-        <input type="radio" id="divorced" name="marital" value="divorced">
-        <label for="divorced">Divorced</label><br>
-        <input type="radio" id="widowed" name="marital" value="widowed">
-        <label for="widowed">Widowed</label><br>
-    </form>
-     <form>
-        <h2>What is your annual household income?</h2>
-        <input type="radio" id="0" name="income" value="0">
-        <label for="0">0-$25,000</label><br>
-        <input type="radio" id="25" name="income" value="25">
-        <label for="25">$25,000 - $50,000</label><br>
-        <input type="radio" id="50" name="income" value="50">
-        <label for="50">$50,000 - $100,000</label><br>
-        <input type="radio" id="100" name="income" value="100">
-        <label for="100">$100,000+</label><br>
-    </form>
-    <form>
-        <h2What is your current employment status?</h2>
-        <input type="radio" id="full" name="employment" value="full">
-        <label for="full">Employed Full-Time</label><br>
-        <input type="radio" id="part" name="employment" value="part">
-        <label for="part">Employed Part-Time</label><br>
-        <input type="radio" id="seeking " name="employment" value="seeking">
-        <label for="seeking">Seeking opportunities</label><br>
-        <input type="radio" id="retired" name="employment" value="retired">
-        <label for="retired">Retired</label><br>
-    </form>
+
+<h1> position</h1>
+
+
+{#    <h1><b>Please answer the following questions:</b></h1>#}
+{#    <form>#}
+{#        <h2>What gender do you identify as?</h2>#}
+{#        <input type="radio" id="female" name="gender" value="female">#}
+{#        <label for="female">Female</label><br>#}
+{#        <input type="radio" id="male" name="gender" value="male">#}
+{#        <label for="male">Male</label><br>#}
+{#        <input type="radio" id="other" name="gender" value="other">#}
+{#        <label for="other">Other</label><br>#}
+{#    </form>#}
+{#    <form>#}
+{#        <h2>What is your age?</h2>#}
+{#        <input type="radio" id="20" name="age" value="20">#}
+{#        <label for="20">20-29</label><br>#}
+{#        <input type="radio" id="30" name="age" value="30">#}
+{#        <label for="30">30-39</label><br>#}
+{#        <input type="radio" id="40" name="age" value="40">#}
+{#        <label for="40">40-49</label><br>#}
+{#        <input type="radio" id="50" name="age" value="50">#}
+{#        <label for="50">50+</label><br>#}
+{#    </form>#}
+{#     <form>#}
+{#        <h2>What is the highest degree or level of education you have completed?</h2>#}
+{#        <input type="radio" id="school" name="education" value="school">#}
+{#        <label for="school">High School</label><br>#}
+{#        <input type="radio" id="bachelor" name="education" value="bachelor">#}
+{#        <label for="bachelor">Bachelor's Degree</label><br>#}
+{#        <input type="radio" id="master" name="education" value="master">#}
+{#        <label for="master">Master's Degree</label><br>#}
+{#        <input type="radio" id="phd" name="education" value="phd">#}
+{#        <label for="phd">Ph.D. or higher</label><br>#}
+{#    </form>#}
+{#     <form>#}
+{#        <h2>What is your marital status?</h2>#}
+{#        <input type="radio" id="single" name="marital" value="single">#}
+{#        <label for="single">Single (never married)</label><br>#}
+{#        <input type="radio" id="married" name="marital" value="married">#}
+{#        <label for="married">Married</label><br>#}
+{#        <input type="radio" id="partnership" name="marital" value="partnership">#}
+{#        <label for="partnership">In a domestic partnership</label><br>#}
+{#        <input type="radio" id="divorced" name="marital" value="divorced">#}
+{#        <label for="divorced">Divorced</label><br>#}
+{#        <input type="radio" id="widowed" name="marital" value="widowed">#}
+{#        <label for="widowed">Widowed</label><br>#}
+{#    </form>#}
+{#     <form>#}
+{#        <h2>What is your annual household income?</h2>#}
+{#        <input type="radio" id="0" name="income" value="0">#}
+{#        <label for="0">0-$25,000</label><br>#}
+{#        <input type="radio" id="25" name="income" value="25">#}
+{#        <label for="25">$25,000 - $50,000</label><br>#}
+{#        <input type="radio" id="50" name="income" value="50">#}
+{#        <label for="50">$50,000 - $100,000</label><br>#}
+{#        <input type="radio" id="100" name="income" value="100">#}
+{#        <label for="100">$100,000+</label><br>#}
+{#    </form>#}
+{#    <form>#}
+{#        <h2What is your current employment status?</h2>#}
+{#        <input type="radio" id="full" name="employment" value="full">#}
+{#        <label for="full">Employed Full-Time</label><br>#}
+{#        <input type="radio" id="part" name="employment" value="part">#}
+{#        <label for="part">Employed Part-Time</label><br>#}
+{#        <input type="radio" id="seeking " name="employment" value="seeking">#}
+{#        <label for="seeking">Seeking opportunities</label><br>#}
+{#        <input type="radio" id="retired" name="employment" value="retired">#}
+{#        <label for="retired">Retired</label><br>#}
+{#    </form>#}
 
 
     <br>
     <br>
     <br>
     <br>
-    <button  onclick="window.location.href='arguments'" type="submit">NEXT </button>
+     <button  onclick="window.location.href='arguments'" type="submit">NEXT </button>
 </body>
 </html>

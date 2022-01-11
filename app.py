@@ -22,8 +22,13 @@ def ques():
     return render_template("questions.html")
 
 
+@app.route('/instructions')
+def instructions():
+    return render_template("instructions.html")
+
+
 @app.route('/arguments')
-def log():
+def arguments():
     return render_template("arguments.html")
 
 
