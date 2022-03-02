@@ -1,5 +1,6 @@
 
 
+
 p{
     font-size: xx-large;
     text-align: center;
@@ -15,6 +16,7 @@ body {
     text-align: center;
     font-family: Century;
 
+
 }
 
 button{
@@ -22,3 +24,11 @@ button{
     color: #0d47a1;
     font-family: Century;
 }
+
+@media only screen and (max-width: 600px) {
+    body{
+        margin-top: 50%;
+
+    }
+
+ }

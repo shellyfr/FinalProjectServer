@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>ELM experiment</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/final_project.css') }}"/>
@@ -10,17 +12,18 @@
            document.write(new Date().toLocaleDateString());
         </script>
 </head>
-<body >
+<body>
 
-<h1> Welcom</h1>
+        <h1> Welcom</h1>
 
 		<form method="POST" enctype="multipart/form-data" action="/todo">
 			<div class="container">
-				<h3><label>Please enter verification code</label></h3>
-				<input type="text" placeholder="pin code" name="cardNumber" id="cardNumber"  required autofocus />
+				<h3><label>Please enter your entry code</label></h3>
+				<input type="text" placeholder="entry code" name="cardNumber" id="cardNumber"  required autofocus />
 				<button  onclick="window.location.href='consent'" type="submit">OK </button>
 			</div>
 		</form>
 
 </body>
+{#<script src="{{ url_for('static', filename='./js/final_project.js') }}"></script>#}
 </html>
