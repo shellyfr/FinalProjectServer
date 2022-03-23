@@ -16,13 +16,21 @@
 
         <h1> Welcom</h1>
 
-		<form method="POST" enctype="multipart/form-data" action="/todo">
+		<form method="POST" enctype="multipart/form-data" action="/connect">
 			<div class="container">
 				<h3><label>Please enter your entry code</label></h3>
-				<input type="text" placeholder="entry code" name="cardNumber" id="cardNumber"  required autofocus />
-				<button  onclick="window.location.href='consent'" type="submit">OK </button>
+				<input type="text" placeholder="entry code" name="entryCode" id="entryCode"  required >
+				<button  type="submit">OK </button>
 			</div>
 		</form>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for ms in messages %}
+                    <h4>{{ ms }}</h4>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
 
 </body>
 {#<script src="{{ url_for('static', filename='./js/final_project.js') }}"></script>#}
