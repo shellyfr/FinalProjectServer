@@ -10,8 +10,8 @@ head{
 
 }
 body {
-    background: #e3f2fd;
-    color: #0d47a1;
+    background: #F2E9DC;
+    /*color: #0d47a1;*/
     margin-top: 10%;
     text-align: center;
     font-family: Century;
@@ -21,7 +21,7 @@ body {
 
 button{
     border-radius: 20%;
-    color: #0d47a1;
+    /*color: #0d47a1;*/
     font-family: Century;
 }
 
