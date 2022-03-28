@@ -7,7 +7,28 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/questions.css') }}"/>
 </head>
 <body>
-<h1> arguments</h1>
+    <h1> arguments</h1>
+    <p>
+        Cryptocurrencies is a means of payment, created by technological means and its value<br>
+        is not determined by the value of goods or by the determination of one central body,<br>
+        but by agreement between a networks of users. The best known example of a cryptocurrency<br>
+        is Bitcoin. Other examples are the Etherium and Ripple. Most cryptocurrencies are based<br>
+        on blockchain technology, of which Bitcoin was its first prominent application.<br>
+        <br>
+        A blockchain is a growing list of records, called blocks that are linked together using <br>
+        cryptography. As blocks each contain information about the block previous to it, they<br>
+        form a chain, with each additional block reinforcing the ones before it. Therefore,<br>
+        blockchains are resistant to modification of their data because once recorded, the data<br>
+        in any given block cannot be altered retroactively without altering all subsequent blocks.
+
+    </p>
+    {% block arguments %}
+
+
+    {% endblock %}
+
+
+
     <button  onclick="window.location.href='opinion'" type="submit">NEXT </button>
 
 

@@ -10,7 +10,7 @@ class DBManager:
         num = script.cur.fetchall()
         if not num:
             return ""
-        number=num[0][0]
+        number=num[0][1]
         return number
 
     def getfinish(self, id):
@@ -28,5 +28,7 @@ class DBManager:
 
         # here we have a problemmm!!!
         # here we have a problemmm!!!
+
+
 
 

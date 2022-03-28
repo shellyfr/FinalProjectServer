@@ -35,6 +35,23 @@ def instructions():
 def arguments():
     return render_template("arguments.html")
 
+@app.route('/1')
+def arguments1():
+    return render_template("argumentsA.html")
+
+@app.route('/2')
+def arguments2():
+    return render_template("argumentsB.html")
+
+@app.route('/3')
+def arguments3():
+    return render_template("argumentsC.html")
+
+@app.route('/4')
+def arguments4():
+    return render_template("argumentsD.html")
+
+
 @app.route('/opinion')
 def opinion():
     return render_template("opinion.html")
@@ -43,6 +60,8 @@ def opinion():
 @app.route('/position')
 def position():
     return render_template("position.html")
+
+
 
 @app.route('/last_page')
 def last_page():
@@ -56,12 +75,14 @@ def connect():
     entryCode = request.form['entryCode']
     group=DB.getgroupnum(entryCode)
 
+
     finish = DB.getfinish(entryCode)
     if group == "":
         flash('The entry code is wrong, please try again')
         return redirect('/')
     elif finish:
         session['id'] = entryCode
+        session['group'] = group
         return redirect('/consent')
     else:
         flash('you already finished your task, thank you!')

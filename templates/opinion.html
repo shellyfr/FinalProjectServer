@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/questions.css') }}"/>
 </head>
 <body>
 <H1>OPINION</H1>
+
+<form>
+     <h3>Do you agree that it is worthwhile to invest in virtual currencies?</h3>
+        <div class="range-wrap">
+            <input type="range" class="range" min="0" max="100" value="0">
+            <output class="bubble"></output>
+        </div>
+     </form>
  <button  onclick="window.location.href='last_page'" type="submit">NEXT </button>
 </body>
 </html>

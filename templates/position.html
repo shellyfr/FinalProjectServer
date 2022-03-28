@@ -93,7 +93,14 @@
     <br>
     <br>
     <br>
-     <button  onclick="window.location.href='arguments'" type="submit">NEXT </button>
+
+    {%  if session['group'] %}
+        <form action="/{{ session['group'] }} ">
+            <button type="submit">NEXT </button>
+        </form>
+    {% endif %}
+
+{#     <button  onclick="window.location.href='arguments'" type="submit">NEXT </button>#}
 </body>
 
 <script src="{{ url_for('static', filename='./js/final_project.js') }}"></script>
