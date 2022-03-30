@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/questions.css') }}"/>
 </head>
 <body>
-    <h1> arguments</h1>
+     <h1> Introduction:</h1>
     <p>
         Cryptocurrencies is a means of payment, created by technological means and its value<br>
         is not determined by the value of goods or by the determination of one central body,<br>
@@ -22,15 +22,17 @@
         in any given block cannot be altered retroactively without altering all subsequent blocks.
 
     </p>
-    {% block arguments %}
 
+    <br>
+    <br>
+    <br>
+    <br>
 
-    {% endblock %}
-
-
-
-    <button  onclick="window.location.href='opinion'" type="submit">NEXT </button>
-
+    {%  if session['group'] %}
+        <form action="/{{ session['group'] }} ">
+            <button type="submit">NEXT </button>
+        </form>
+    {% endif %}
 
 </body>
 </html>

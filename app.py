@@ -21,9 +21,13 @@ def consent():
     return render_template("consent.html")
 
 
-@app.route('/questions')
-def ques():
-    return render_template("questions.html")
+@app.route('/demographic1')
+def demographic1():
+    return render_template("demographic1.html")
+
+@app.route('/demographic2')
+def demographic2():
+    return render_template("demographic2.html")
 
 
 @app.route('/instructions')
@@ -31,21 +35,25 @@ def instructions():
     return render_template("instructions.html")
 
 
-@app.route('/arguments')
-def arguments():
-    return render_template("arguments.html")
+@app.route('/info')
+def info():
+    return render_template("info.html")
+
 
 @app.route('/1')
 def arguments1():
     return render_template("argumentsA.html")
 
+
 @app.route('/2')
 def arguments2():
     return render_template("argumentsB.html")
 
+
 @app.route('/3')
 def arguments3():
     return render_template("argumentsC.html")
+
 
 @app.route('/4')
 def arguments4():

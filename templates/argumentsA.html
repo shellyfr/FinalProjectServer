@@ -1,28 +1,38 @@
-{% extends 'arguments.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/questions.css') }}"/>
+</head>
+<body>
+    <h1>Please read the following information:</h1>
+     <ul>
+        <li> Tesla CEO Elon Musk has been a supporter of cryptocurrency for a long time.<br>
+        He does not shy away from expressing his views on Twitter and investing a lot.</li>
+        <li>Last year Tesla company of Elon Musk purchased 1.50 billion in bitcoin, for<br>
+        more flexibility to further diversify and maximize returns on their cash.</li>
+        <li>Investors and economists showing growing interest in understanding the economics<br>
+        and the price mechanisms among cryptocurrencies.</li>
+       <li>Blockchains (the technology cryptocurrencies based on) create a new investable<br>
+        class of assets in areas not previously available through financial inclusion.</li>
+       <li>Bitcoins are also found reliable for banking and other secure transactions <br>
+        because it develops a worldwide digital currency based on blockchain technology.</li>
+        <li>In 2021, El Salvador made waves by becoming the first country to make Bitcoin <br>
+        legal tender (residents can pay taxes and settle debts with it).</li>
+       <li>The advantages of cryptocurrencies include cheaper and faster money transfers<br>
+        and decentralized systems that do not collapse at a single point of failure.</li>
+       <li>On a Study that was made by Joseph Altonji, Professor of Economics, he claimed<br>
+        that cryptocurrency removes central banks from managing the money supply.</li>
+        <li>Alberto Abadie head of MIT Department of Economics, claims that blockchain and <br>
+        related technology will disrupt many industries, including finance and law.</li>
+    </ul>
 
-{% block arguments %}
-<main>
 
-    <p>
-        1. Tesla CEO Elon Musk has been a supporter of cryptocurrency for a long time.<br>
-        He does not shy away from expressing his views on Twitter and investing a lot.<br>
-        2.	Last year Tesla company of Elon Musk purchased 1.50 billion in bitcoin, for<br>
-        more flexibility to further diversify and maximize returns on their cash.<br>
-        3.	Investors and economists showing growing interest in understanding the economics<br>
-        and the price mechanisms among cryptocurrencies.<br>
-        4.	Blockchains (the technology cryptocurrencies based on) create a new investable<br>
-        class of assets in areas not previously available through financial inclusion.<br>
-        5.	Bitcoins are also found reliable for banking and other secure transactions <br>
-        because it develops a worldwide digital currency based on blockchain technology.<br>
-        6.	In 2021, El Salvador made waves by becoming the first country to make Bitcoin <br>
-        legal tender (residents can pay taxes and settle debts with it).<br>
-        7.	The advantages of cryptocurrencies include cheaper and faster money transfers<br>
-        and decentralized systems that do not collapse at a single point of failure.<br>
-        8.	On a Study that was made by Joseph Altonji, Professor of Economics, he claimed<br>
-        that cryptocurrency removes central banks from managing the money supply.<br>
-        9.	Alberto Abadie head of MIT Department of Economics, claims that blockchain and <br>
-        related technology will disrupt many industries, including finance and law.<br>
-    </p>
-</main>
 
-{% endblock %}
+    <button  onclick="window.location.href='opinion'" type="submit">NEXT </button>
+
+
+</body>
+</html>
