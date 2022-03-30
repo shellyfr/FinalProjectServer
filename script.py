@@ -5,6 +5,14 @@ DB_NAME = "d65unat87kvmcm"
 DB_USER = "lpkkulcjvlcwac"
 DB_PASS = "a807632e5a088ae0029187cfa56b9a4679ebbb173265d59fc00200b35ba2175e"
 
+def connect_to_db(sql_script):
+    conn = ps.connect(dbname=DB_NAME, user=DB_USER, password=DB_PASS, host=DB_HOST)
+    cur = conn.cursor()
+    cur.execute(sql_script)
+    conn.commit()
+
+def close_connection():
+    conn.close()
 
 conn = ps.connect(dbname=DB_NAME,user=DB_USER, password= DB_PASS, host=DB_HOST)
 cur = conn.cursor()

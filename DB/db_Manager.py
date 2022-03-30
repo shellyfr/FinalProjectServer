@@ -5,6 +5,14 @@ class DBManager:
     def _init_(self):
         pass
 
+    def getEntryCode(self, id):
+        script.cur.execute("Select * From codes Where id=%s;", (id,))
+        num = script.cur.fetchall()
+        print(num)
+        if not num:
+            return False
+        return True
+
     def getgroupnum(self, id):
         script.cur.execute("Select * From codes Where id=%s;",(id,))
         num = script.cur.fetchall()
@@ -22,8 +30,7 @@ class DBManager:
 
     def user_finish(self,id):
         print(4)
-        script.cur.execute('''UPDATE codes SET isfin = 1 WHERE id=%s;''', (id,))
-        script.cur.execute("Select isfin From codes Where id=%s;", (id,))
+        script.connect_to_db("UPDATE codes SET isfin = 1 WHERE id=" + id +";")
         print(script.cur.fetchall())
 
         # here we have a problemmm!!!

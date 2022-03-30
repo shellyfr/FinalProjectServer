@@ -1,24 +1,33 @@
 from flask import Flask, render_template, flash, request, session,url_for, redirect
 from DB.db_Manager import DBManager
 
-
-import script
-
 app = Flask(__name__)
 app.config.from_pyfile('script.py')
 
-app.secret_key = '1234'
+app.secret_key = 'thisIsMySpecialSecret!'
 
 DB = DBManager()
 
+
 @app.route('/')
 def home():
+    user = request.headers.get('User-Agent')
+    print("This is my SuperMAN -> " + user)
+    print("This is my SuperMAN platform -> " + request.user_agent.platform)
     return render_template("final_project.html")
 
 
 @app.route('/consent')
 def consent():
     return render_template("consent.html")
+
+
+@app.route('/Check',methods= ['POST'])
+def Check():
+    agree=request.form['consent']
+    if agree=='agree':
+        return render_template("instructions.html")
+    return render_template("last_page.html")
 
 
 @app.route('/demographic1')
@@ -82,13 +91,13 @@ def last_page():
 def connect():
     entryCode = request.form['entryCode']
     group=DB.getgroupnum(entryCode)
+    getEntryCode=DB.getEntryCode(entryCode)
 
-
-    finish = DB.getfinish(entryCode)
-    if group == "":
+    if not getEntryCode:
         flash('The entry code is wrong, please try again')
         return redirect('/')
-    elif finish:
+    finish = DB.getfinish(entryCode)
+    if finish:
         session['id'] = entryCode
         session['group'] = group
         return redirect('/consent')

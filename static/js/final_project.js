@@ -1,7 +1,6 @@
 function date(){
     document.getElementById("date").innerHTML = Date();
 }
-
 const allRanges = document.querySelectorAll(".range-wrap");
 allRanges.forEach(wrap => {
   const range = wrap.querySelector(".range");

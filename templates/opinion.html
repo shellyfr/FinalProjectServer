@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/questions.css') }}"/>
+
+    function disableBack() { window.history.forward(); }
+        setTimeout("disableBack()", 0);
+        window.onunload = function () { null };
+    </script>
 </head>
 <body>
 <H1>OPINION</H1>
@@ -15,11 +20,13 @@
             <output class="bubble"></output>
         </div>
     </form>
+
+
     <br>
     <br>
     <br>
     <br>
-    <button  onclick="window.location.href='demographic1'" type="submit">NEXT </button>
+    <button onclick="window.location.href='demographic1'" type="submit">NEXT </button>
 </body>
 
 <script src="{{ url_for('static', filename='./js/final_project.js') }}"></script>

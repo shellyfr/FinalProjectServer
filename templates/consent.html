@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/questions.css') }}"/>
+    <script type="text/javascript">
+        function disableBack() { window.history.forward(); }
+        setTimeout("disableBack()", 0);
+        window.onunload = function () { null };
+    </script>
 </head>
 <body>
     <h1>Consent Form</h1>
@@ -35,14 +40,17 @@
         •	You have read the above information<br>
         •	You voluntarily agree to participate<br>
     </p>
-    <form>
+{#    {%  if session['group'] %}#}
+    <form action="/Check" method="POST">
         <input type="radio" id="agree" name="consent" value="agree">
         <label for="agree">Agree</label><br>
         <input type="radio" id="disagree" name="consent" value="disagree">
         <label for="disagree">Disagree</label><br>
+        <button   type="submit">NEXT </button>
     </form>
     <br>
-    <button  onclick="window.location.href='instructions'" type="submit">NEXT </button>
+
+{#onclick="window.location.href='instructions'"#}
 
 
 </body>
