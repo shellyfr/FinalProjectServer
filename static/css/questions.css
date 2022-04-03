@@ -1,7 +1,7 @@
 
 
 body {
-    background: #F2E9DC;
+    /*background: #F2E9DC;*/
     /*color: #0d47a1;*/
     margin-top: 5%;
     margin-left: 5%;
@@ -15,11 +15,16 @@ button{
     font-family: Century;
 }
 
-h3{
+h1.center{
+    text-align: center;
 
-    /*color: #0b616a;*/
 }
 
+
+h2.center{
+    text-align: center;
+
+}
 .underLine{
     text-decoration: underline;
 }
@@ -34,6 +39,14 @@ p{
     color: black;
 }
 
+div.frame{
+    border-style: groove;
+    border-radius: 5%;
+    padding-left: 5%;
+    margin-right: 5%;
+
+}
+
 /*SLIDER*/
 
 .range-wrap {
@@ -43,7 +56,7 @@ p{
   right: 13%;
 }
 .range {
-  width: 100%;
+  width: 80%;
 }
 .bubble {
   background: #0d47a1;

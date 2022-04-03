@@ -22,12 +22,18 @@ def consent():
     return render_template("consent.html")
 
 
+@app.route('/disagree')
+def disagree():
+    return render_template("disagree.html")
+
+
+
 @app.route('/Check',methods= ['POST'])
 def Check():
     agree=request.form['consent']
     if agree=='agree':
         return render_template("instructions.html")
-    return render_template("last_page.html")
+    return render_template("disagree.html")
 
 
 @app.route('/demographic1')

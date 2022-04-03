@@ -5,22 +5,31 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/questions.css') }}"/>
-
+<script type="text/javascript">
     function disableBack() { window.history.forward(); }
         setTimeout("disableBack()", 0);
         window.onunload = function () { null };
     </script>
 </head>
 <body>
-<H1>OPINION</H1>
-    <form>
-        <h3>Do you agree that it is worthwhile to invest in virtual currencies?</h3>
-        <div class="range-wrap">
-            <input type="range" class="range" min="0" max="100" value="0">
-            <output class="bubble"></output>
-        </div>
-    </form>
-
+ <h1 class="center"> Please indicate your level of agreement on each of the following statements: </h1>
+    <h2 class="center">(On a scale 0 to 100. 0 indicates I strongly disagree and 100 indicate I strongly agree.) </h2>
+    <div class="frame">
+        <form>
+            <h3>Investing in virtual currencies is beneficial.</h3>
+            <div class="range-wrap">
+                <input type="range" class="range" min="0" max="100" value="0">
+                <output class="bubble"></output>
+            </div>
+        </form>
+        <form>
+            <h3>Holding one/several different crypto currencies is a safe investment.</h3>
+            <div class="range-wrap">
+                <input type="range" class="range" min="0" max="100" value="0">
+                <output class="bubble"></output>
+            </div>
+        </form>
+    </div>
 
     <br>
     <br>
