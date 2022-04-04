@@ -47,6 +47,18 @@ div.frame{
 
 }
 
+div.frame2{
+    border-style: groove;
+    border-radius: 10%;
+    padding-left: 5%;
+    margin-right: 10%;
+    margin-left: 10%;
+
+}
+
+
+
+
 /*SLIDER*/
 
 .range-wrap {
