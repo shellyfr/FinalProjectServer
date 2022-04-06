@@ -5,37 +5,24 @@ class DBManager:
     def _init_(self):
         pass
 
-    def getEntryCode(self, id):
-        script.cur.execute("Select * From codes Where id=%s;", (id,))
-        num = script.cur.fetchall()
-        print(num)
+    def getFromCodes(self, id):
+        sql_query = "Select * From codes Where id=" + id + ";"
+        num=script.get_data_from_db(sql_query)
         if not num:
             return False
-        return True
+        return num
 
-    def getgroupnum(self, id):
-        script.cur.execute("Select * From codes Where id=%s;",(id,))
-        num = script.cur.fetchall()
-        if not num:
-            return ""
-        number=num[0][1]
-        return number
+    def updateCodes(self, id):
+        script.update_db("UPDATE codes SET isfin = 1 WHERE id=" + id + ";")
 
-    def getfinish(self, id):
-        script.cur.execute("Select * From codes Where id=%s;",(id,))
-        num = script.cur.fetchall()
-        if num[0][2] == 1:
-            return False
-        return True
+    def insertPosition(self, id, snew1, snew2, snew3, snew4, snew5, snew6 ):
+        script.insertDB("INSERT INTO positions(entry_code, s1, s2, s3, s4, s5, s6 ) VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s')" % (id, snew1, snew2, snew3, snew4, snew5, snew6 ))
 
-    def user_finish(self,id):
-        print(4)
-        script.connect_to_db("UPDATE codes SET isfin = 1 WHERE id=" + id +";")
-        print(script.cur.fetchall())
+    def insertOpinion(self, id, onew1, onew2 ):
+        script.insertDB("INSERT INTO opinion(entry_code, o1, o4) VALUES('%s', '%s' , '%s')" % (id, onew1, onew2 ))
 
-        # here we have a problemmm!!!
-        # here we have a problemmm!!!
+    def insertDemo1(self, id, age1, gender1,education1, income1,employment1,computer1, phone1 ):
+        script.insertDB("INSERT INTO demografic1(entry_code, age, gender,education, income,employment,computer, phone) VALUES('%s', '%s' , '%s','%s', '%s', '%s', '%s', '%s')" % (id, age1, gender1,education1, income1,employment1,computer1, phone1))
 
-
-
-
+    def insertDemo2(self, id, space1, space_scale1, space_private1, space_size1,noise1,dark1, density1):
+        script.insertDB("INSERT INTO demografic2(entry_code,  space, space_scale,space_private, space_size,noise,dark, density ) VALUES('%s', '%s' , '%s','%s', '%s', '%s', '%s', '%s')" % (id, space1, space_scale1,space_private1, space_size1,noise1,dark1, density1))

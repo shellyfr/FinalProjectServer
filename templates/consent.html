@@ -5,11 +5,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/questions.css') }}"/>
-    <script type="text/javascript">
-        function disableBack() { window.history.forward(); }
-        setTimeout("disableBack()", 0);
-        window.onunload = function () { null };
-    </script>
+
 </head>
 <body>
     <h1 class="center">Consent Form</h1>
@@ -50,7 +46,7 @@
         </p>
     {#    {%  if session['group'] %}#}
         <form action="/Check" method="POST">
-            <input type="radio" id="agree" name="consent" value="agree">
+            <input type="radio" id="agree" name="consent" value="agree" required>
             <label for="agree">Agree</label><br>
             <input type="radio" id="disagree" name="consent" value="disagree">
             <label for="disagree">Disagree</label><br>
@@ -60,10 +56,6 @@
         </form>
         <br>
     </div>
-
-{#onclick="window.location.href='instructions'"#}
-
-
 </body>
 
 <script src="{{ url_for('static', filename='./js/final_project.js') }}"></script>

@@ -5,25 +5,21 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/questions.css') }}"/>
-    <script type="text/javascript">
-        function disableBack() { window.history.forward(); }
-        setTimeout("disableBack()", 0);
-        window.onunload = function () { null };
-    </script>
+
 </head>
 <body>
 <div class="frame">
     <h2>General questions about the environment in which you performed the experiment:</h2>
-    <form>
+    <form action="/handleDemo2" method="POST">
         <h3>Are you in a closed or open space?</h3>
-        <input type="radio" id="closed" name="space" value="closed">
+        <input type="radio" id="closed" name="space" value="closed" required>
         <label for="closed">closed</label><br>
         <input type="radio" id="open" name="space" value="open">
         <label for="open">open</label><br>
-    </form>
+
         <h3>On a scale of 1 to 7, rate the environment you are in<br>
         (where 1 represents "closed space" and 7 represents "open space")</h3>
-        <input type="radio" id="1" name="space_scale" value="1">
+        <input type="radio" id="1" name="space_scale" value="1" required>
         <label for="1">1</label>
         <input type="radio" id="2" name="space_scale" value="2">
         <label for="2">2</label>
@@ -37,12 +33,11 @@
         <label for="6">6</label>
         <input type="radio" id="7" name="space_scale" value="7">
         <label for="7">7</label>
-    </form>
-    <form>
+
         <h3>Are you in a private or public space? <br>
             On a scale of 1 to 7, rate the environment you are in <br>
             (where 1 represents "private space" and 7 represents "public space")</h3>
-        <input type="radio" id="1" name="space_private" value="1">
+        <input type="radio" id="1" name="space_private" value="1" required>
         <label for="1">1</label>
         <input type="radio" id="2" name="space_private" value="2">
         <label for="2">2</label>
@@ -56,12 +51,11 @@
         <label for="6">6</label>
         <input type="radio" id="7" name="space_private" value="7">
         <label for="7">7</label>
-    </form>
-    <form>
+
         <h3>Are you in a large or small space?<br>
             On a scale of 1 to 7, rate the size of the environment you are in <br>
             (where 1 represents "smallest" and 7 represents "largest")</h3>
-        <input type="radio" id="1" name="space_size" value="1">
+        <input type="radio" id="1" name="space_size" value="1" required>
         <label for="1">1</label>
         <input type="radio" id="2" name="space_size" value="2">
         <label for="2">2</label>
@@ -75,13 +69,13 @@
         <label for="6">6</label>
         <input type="radio" id="7" name="space_size" value="7">
         <label for="7">7</label>
-    </form>
+
 
     <h2>Questions about environmental disturbances:</h2>
-    <form>
+
         <h3>On a scale of 1 to 7, rate the noise around you <br>
             (where 1 represents "not noisy at all" and 7 represents "extremely noisy").</h3>
-        <input type="radio" id="1" name="noise" value="1">
+        <input type="radio" id="1" name="noise" value="1" required>
         <label for="1">1</label>
         <input type="radio" id="2" name="noise" value="2">
         <label for="2">2</label>
@@ -95,11 +89,10 @@
         <label for="6">6</label>
         <input type="radio" id="7" name="noise" value="7">
         <label for="7">7</label>
-    </form>
-    <form>
+
         <h3>On a scale of 1 to 7, rate the level of darkness around you <br>
             (where 1 represents "not dark at all" and 7 represents "extremely dark").</h3>
-        <input type="radio" id="1" name="dark" value="1">
+        <input type="radio" id="1" name="dark" value="1" required>
         <label for="1">1</label>
         <input type="radio" id="2" name="dark" value="2">
         <label for="2">2</label>
@@ -113,11 +106,11 @@
         <label for="6">6</label>
         <input type="radio" id="7" name="dark" value="7">
         <label for="7">7</label>
-    </form>
-    <form>
+
+
         <h3>On a scale of 1 to 7, rate the density of the people around you <br>
             (where 1 represents "not crowded at all" and 7 represents "extremely crowded").</h3>
-        <input type="radio" id="1" name="density" value="1">
+        <input type="radio" id="1" name="density" value="1" required>
         <label for="1">1</label>
         <input type="radio" id="2" name="density" value="2">
         <label for="2">2</label>
@@ -131,10 +124,11 @@
         <label for="6">6</label>
         <input type="radio" id="7" name="density" value="7">
         <label for="7">7</label>
+          <button   type="submit">NEXT </button>
     </form>
 <br>
 <br>
-    <button  onclick="window.location.href='last_page'" type="submit">NEXT </button>
+
     <br>
     <br>
     </div>
