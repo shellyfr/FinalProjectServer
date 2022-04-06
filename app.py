@@ -121,9 +121,9 @@ def connect():
     num = DB.getFromCodes(entryCode)
     deviceDB = num[0][3]
     OperatingSystem=request.user_agent.platform
-    if OperatingSystem =="windows" or OperatingSystem =="macOS" or OperatingSystem =="Linux" :
+    if OperatingSystem =="windows" or OperatingSystem =="macos" or OperatingSystem =="linux" :
         entryDevice=1
-    elif OperatingSystem =='Android' or OperatingSystem =='iOS' or OperatingSystem =='Blackberry OS' or OperatingSystem =='Windows OS' or OperatingSystem =='Symbian OS' or OperatingSystem =='Tizen':
+    elif OperatingSystem =='android' or OperatingSystem =='ios' or OperatingSystem =='blackberry OS' or OperatingSystem =='Windows OS' or OperatingSystem =='Symbian OS' or OperatingSystem =='Tizen':
         entryDevice=0
 
     if num == False:
