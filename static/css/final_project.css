@@ -16,14 +16,66 @@ body {
     text-align: center;
     font-family: Century;
 
-
 }
 
 button{
     border-radius: 20%;
     /*color: #0d47a1;*/
     font-family: Century;
+
+    background-color: #4b87c1;
+    color: #FFFFFF;
+    border-style: none;
+    font-size: 100%;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+
 }
+
+button:hover,
+button:focus{
+      background-color: #89aede;
+}
+
+
+/*<!-- HTML !-->*/
+/*<button class="button-1" role="button">Button 1</button>*/
+
+/* CSS */
+/*.button-1 {*/
+/*  background-color: #1f36dc;*/
+/*  border-radius: 8px;*/
+/*  border-style: none;*/
+/*  box-sizing: border-box;*/
+/*  color: #FFFFFF;*/
+/*  cursor: pointer;*/
+/*  display: inline-block;*/
+/*  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+/*  !*font-size: 10px;*!*/
+/*  font-weight: 500;*/
+/*  !*height: 10%;*!*/
+/*  !*line-height: 20px;*!*/
+/*  list-style: none;*/
+/*  margin: 0;*/
+/*  outline: none;*/
+/*  padding: 10px 16px;*/
+/*  position: relative;*/
+/*  text-align: center;*/
+/*  text-decoration: none;*/
+/*  transition: color 100ms;*/
+/*  vertical-align: baseline;*/
+/*  user-select: none;*/
+/*  -webkit-user-select: none;*/
+/*  touch-action: manipulation;*/
+/*}*/
+
+/*.button-1:hover,*/
+/*.button-1:focus {*/
+/*  background-color: #F082AC;*/
+/*}*/
 
 @media only screen and (max-width: 600px) {
     body{

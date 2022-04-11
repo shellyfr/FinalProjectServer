@@ -15,7 +15,7 @@
         {% with messages2 = get_flashed_messages() %}
             {% if messages2 %}
                 {% for ms in messages2 %}
-                    <h4 style="color: #9C1A1C">{{ ms }}</h4>
+                    <h4 class="center" style="color: #9C1A1C">{{ ms }}</h4>
                 {% endfor %}
             {% endif %}
         {% endwith %}
@@ -57,12 +57,13 @@
                 <input type="range" class="range" name="s6" min="-1" max="100" value="-1">
                 <output class="bubble"></output>
             </div>
-            <button  type="submit">NEXT </button>
-         </form>
+            <div class = "center">
+                <button  type="submit">NEXT </button>
+            </div>
+        </form>
         <br>
         <br>
-            <br>
-            <br>
+        <br>
 
     </div>
 

@@ -1,4 +1,5 @@
 from flask import Flask, render_template, flash, request, session,url_for, redirect
+from datetime import datetime
 from DB.db_Manager import DBManager
 
 app = Flask(__name__)
@@ -21,6 +22,8 @@ def home():
     # session['page'] = 1
     # return render_template("final_project.html")
     user = request.headers.get('User-Agent')
+    start = datetime.now().strftime("%d-%b-%Y %H:%M:%S")
+    print(start)
     print("This is my SuperMAN -> " + user)
     print("This is my SuperMAN platform -> " + request.user_agent.platform)
     return render_template("final_project.html")
@@ -108,22 +111,16 @@ def opinion():
     return render_template("opinion.html")
 
 
-@app.route('/last_page')
-def last_page():
-    DB.updateCodes(session['id'])
-    session.pop('id', None)
-    return render_template("last_page.html")
-
 
 @app.route('/connect',methods= ['POST'])
 def connect():
     entryCode = request.form['entryCode']
     num = DB.getFromCodes(entryCode)
     deviceDB = num[0][3]
-    OperatingSystem=request.user_agent.platform
-    if OperatingSystem =="windows" or OperatingSystem =="macos" or OperatingSystem =="linux" :
+    OperatingSystem=request.user_agent.platform.lower()
+    if OperatingSystem.__contains__("windows")  or OperatingSystem.__contains__("macos") or OperatingSystem.__contains__("linux") :
         entryDevice=1
-    elif OperatingSystem =='android' or OperatingSystem =='ios' or OperatingSystem =='blackberry OS' or OperatingSystem =='Windows OS' or OperatingSystem =='Symbian OS' or OperatingSystem =='Tizen':
+    elif OperatingSystem.__contains__('android') or OperatingSystem.__contains__('ios' ) or OperatingSystem.__contains__('blackberry OS')  or OperatingSystem.__contains__('Windows OS') or OperatingSystem.__contains__('symbian') or OperatingSystem.__contains__('os') or OperatingSystem.__contains__('Tizen'):
         entryDevice=0
 
     if num == False:
@@ -196,15 +193,22 @@ def handleDemo1():
 
 @app.route('/handleDemo2', methods=['POST'])
 def handleDemo2():
-    space = request.form['space']
+    myspace = request.form['myspace']
     space_scale = request.form['space_scale']
     space_private = request.form['space_private']
     space_size = request.form['space_size']
     noise = request.form['noise']
     dark = request.form['dark']
     density = request.form['density']
-    DB.insertDemo2(session['id'], space, space_scale,space_private, space_size, noise, dark, density)
+    DB.insertDemo2(session['id'], myspace, space_scale,space_private, space_size, noise, dark, density)
     return redirect('/last_page')
+
+@app.route('/last_page')
+def last_page():
+    end_time = datetime.now().strftime("%H:%M:%S")
+    DB.updateCodes(session['id'], end_time)
+    session.pop('id', None)
+    return render_template("last_page.html")
 
 
 if __name__ == '__main__':

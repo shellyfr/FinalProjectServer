@@ -9,14 +9,15 @@
 </head>
 <body>
     <h1 class="center"> Introduction:</h1>
-    <div class="frame2">
+    <div class="frame">
         <br>
         <br>
-        Cryptocurrencies is a means of payment, created by technological means. Its value<br>
-        is not determined by the value of goods or by the determination of one central body,<br>
-        rather by agreement between a networks of users. The best known example of a cryptocurrency<br>
-        is Bitcoin. Other examples are the Etherium and Ripple. Most cryptocurrencies are based<br>
-        on blockchain technology, of which Bitcoin was its first prominent application.<br>
+        Cryptocurrencies is a means of payment, created by technological means. Its value
+        is not determined by the value of goods or by the determination of one central body,
+        rather by agreement between a networks of users. The best known example of a
+        cryptocurrency is Bitcoin. Other examples are the Etherium and Ripple. Most
+        cryptocurrencies are based on blockchain technology, of which Bitcoin was its first
+        prominent application.<br>
         <br>
 {#        A blockchain is a growing list of records, called blocks that are linked together using <br>#}
 {#        cryptography. Each contain information about the block previous to it, they form a chain,<br>#}
@@ -28,7 +29,9 @@
 
     {%  if session['group'] %}
         <form action="/{{ session['group'] }} ">
-            <button type="submit">NEXT </button>
+            <div class = "center">
+                <button type="submit">NEXT </button>
+            </div>
         </form>
     {% endif %}
     <br>

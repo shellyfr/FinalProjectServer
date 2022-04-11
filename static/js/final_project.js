@@ -21,6 +21,7 @@ function setBubble(range, bubble) {
 
   // Sorta magic numbers based on size of the native UI thumb
   bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
+
 }
 
 function getAgree(){
