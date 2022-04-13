@@ -1,7 +1,7 @@
-from flask import Flask, render_template, flash, request, session,url_for, redirect
+from flask import Flask, render_template, flash, request, session, redirect
 from datetime import datetime
 from DB.db_Manager import DBManager
-# from user_agents import parse
+from user_agents import parse
 
 app = Flask(__name__)
 app.config.from_pyfile('script.py')
@@ -32,6 +32,9 @@ def home():
     session.pop('last', None)
 
     user = request.headers.get('User-Agent')
+    # user_agent = parse(user)
+
+    # print("This is -> ", user_agent.is_pc)
     start = datetime.now().strftime("%d-%b-%Y %H:%M:%S")
     print(start)
     print("This is my SuperMAN -> " + user)
@@ -171,21 +174,22 @@ def connect():
         flash('The entry code is wrong, please try again')
         return redirect('/')
     deviceDB = num[0][3]
-    OperatingSystem=request.user_agent.platform.lower()
-    if OperatingSystem.__contains__("windows")  or OperatingSystem.__contains__("macos") or OperatingSystem.__contains__("linux") :
-        entryDevice=1
-    elif OperatingSystem.__contains__('android') or OperatingSystem.__contains__('ios' ) or OperatingSystem.__contains__('blackberry OS')  or OperatingSystem.__contains__('Windows OS') or OperatingSystem.__contains__('symbian') or OperatingSystem.__contains__('os') or OperatingSystem.__contains__('Tizen'):
-        entryDevice=0
+    user = request.headers.get('User-Agent')
+    is_pc = parse(user).is_pc
+    if is_pc == True:
+        entryDevice = 1
+    else:
+        entryDevice = 0
 
-    group=num[0][1]
+    group = num[0][1]
 
     if num[0][2] == 1:
         finish = True
     else:
         finish = False
+
     if finish == False:
         if deviceDB == entryDevice:
-            print(OperatingSystem)
             session['id'] = entryCode
             session['group'] = group
             session['consent'] = 0
