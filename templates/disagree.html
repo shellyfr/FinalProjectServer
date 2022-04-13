@@ -6,10 +6,32 @@
     <title>Title</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/questions.css') }}"/> <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
-<div class="frame">
-    <h3 style="color: #ce2529">You have chosen to disagree to the terms and therefore you will not be able to perform the task.<br>
-        If you want to perform the task you must log in again with the same code and agree to the terms.</h3>
-</div>
-</body>
+
+    {% if  session %}
+        {% if  session['id'] %}
+            {% if  session['consent'] == 1 and session['disagree'] == 0 %}
+                <body>
+                <form action="/">
+                    <div class="frame">
+                        <h3 style="color: #ce2529">You have chosen to disagree to the terms and therefore you will not be able to perform the task.<br>
+                            If you want to perform the task you must log in again with the same code and agree to the terms.</h3>
+                    </div>
+                    <button type="submit">Start Again</button>
+                </form>
+                </body>
+                {% else %}
+                    <body onload="window.location.href='error'">
+
+                    </body>
+            {% endif %}
+        {% endif %}
+        {% else %}
+            <body>
+                <div class="frame" style="color: #9C1A1C">
+                    Please log in with your entry code.
+                </div>
+            </body>
+    {% endif %}
+
+
 </html>

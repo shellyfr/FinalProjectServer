@@ -5,40 +5,55 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/questions.css') }}"/>
+    <script type="text/javascript">
+        function disableBack() { window.history.forward(); }
+        setTimeout("disableBack()", 0);
+        window.onunload = function () { null };
+    </script>
 
 </head>
-<body>
-    <h1 class="center"> Introduction:</h1>
-    <div class="frame">
-        <br>
-        <br>
-        Cryptocurrencies is a means of payment, created by technological means. Its value
-        is not determined by the value of goods or by the determination of one central body,
-        rather by agreement between a networks of users. The best known example of a
-        cryptocurrency is Bitcoin. Other examples are the Etherium and Ripple. Most
-        cryptocurrencies are based on blockchain technology, of which Bitcoin was its first
-        prominent application.<br>
-        <br>
-{#        A blockchain is a growing list of records, called blocks that are linked together using <br>#}
-{#        cryptography. Each contain information about the block previous to it, they form a chain,<br>#}
-{#        with each additional block reinforcing the ones before it. Therefore, blockchains are<br>#}
-{#        resistant to modification of their data because once recorded, the data in any given<br>#}
-{#        block cannot be altered retroactively without altering all subsequent blocks.#}
 
-            <br>
+    {% if  session %}
+        {% if  session['id'] %}
+            {% if  session['position'] == 1 and session['info'] == 0 %}
+                <body>
+                    <h1 class="center"> Introduction:</h1>
+                    <div class="frame">
+                        <br>
+                        <br>
+                        Cryptocurrencies is a means of payment, created by technological means. Its value
+                        is not determined by the value of goods or by the determination of one central body,
+                        rather by agreement between a networks of users. The best known example of a
+                        cryptocurrency is Bitcoin. Other examples are the Etherium and Ripple. Most
+                        cryptocurrencies are based on blockchain technology, of which Bitcoin was its first
+                        prominent application.<br>
+                        <br>
+                        <br>
 
-    {%  if session['group'] %}
-        <form action="/{{ session['group'] }} ">
-            <div class = "center">
-                <button type="submit">NEXT </button>
-            </div>
-        </form>
+                    {%  if session['group'] %}
+                        <form action="/{{ session['group'] }} ">
+                            <div class = "center">
+                                <button type="submit">NEXT </button>
+                            </div>
+                        </form>
+                    {% endif %}
+                    <br>
+                    <br>
+                    </div>
+                </body>
+                {% else %}
+                    <body onload="window.location.href='error'">
+
+                    </body>
+            {% endif %}
+        {% endif %}
+        {% else %}
+            <body>
+                <div class="frame" style="color: #9C1A1C">
+                    Please log in with your entry code.
+                </div>
+            </body>
     {% endif %}
-    <br>
-    <br>
-
-    </div>
 
 
-</body>
 </html>

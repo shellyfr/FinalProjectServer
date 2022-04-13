@@ -57,7 +57,9 @@ def get_data_from_db(sql_script):
         conn, cur = open_connection()
         print("getting data")
         execute_script(cur, sql_script)
+        print("-------------")
         data = cur.fetchall()
+        print(data)
     except ps.DatabaseError as e:
         print(f'Error {e}')
     finally:

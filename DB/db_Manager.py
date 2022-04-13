@@ -8,7 +8,8 @@ class DBManager:
     def getFromCodes(self, id):
         sql_query = "Select * From codes Where id=" + id + ";"
         num=script.get_data_from_db(sql_query)
-        if not num:
+        print( num)
+        if num == [] :
             return False
         return num
 

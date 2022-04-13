@@ -5,55 +5,72 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/questions.css') }}"/>
+    <script type="text/javascript">
+        function disableBack() { window.history.forward(); }
+        setTimeout("disableBack()", 0);
+        window.onunload = function () { null };
+    </script>
 
 </head>
-<body>
-    <h1 class="center">Please read the following information:</h1>
-    <div class="frame">
-        <br>
-         <ul>
-            <li> Tesla CEO Elon Musk has been a supporter of cryptocurrency for a long time.
-            He does not shy away from expressing his views on Twitter.</li>
-            <br>
-            <li>Last year Tesla company of Elon Musk purchased 1.50 billion in bitcoin, for
-            more flexibility to further diversify and maximize returns on their cash.</li>
-            <br>
-            <li>Investors and economists show growing interest in understanding the economics
-            and the price mechanisms among cryptocurrencies.</li>
-             <br>
-            <li>Blockchains (the technology cryptocurrencies are based on) create a new investable
-            class of assets in areas not previously available through financial channels.</li>
-            <br>
-            <li>Bitcoins are also found reliable for banking and other secure transactions
-            because it develops a worldwide digital currency based on blockchain technology.</li>
-            <br>
-            <li>In 2021, El Salvador made waves by becoming the first country to make Bitcoin
-            legal tender (residents can pay taxes and settle debts with it).</li>
-            <br>
-            <li>The advantages of cryptocurrencies include cheaper and faster money transfers
-            and decentralized systems that do not collapse at a single point of failure.</li>
-            <br>
-            <li>In a study that was made by Joseph Altonji, Professor of Economics, he claimed
-            that cryptocurrency removes central banks from managing the money supply.</li>
-            <br>
-            <li>Alberto Abadie head of the MIT Department of Economics, claims that blockchain and
-            related technology will disrupt many industries, including finance and law.</li>
-        </ul>
-        <br>
-        <br>
-        <div class = "center">
-           <button  onclick="window.location.href='opinion'" type="submit">NEXT </button>
-        </div>
 
-        <br>
-        <br>
+    {% if  session %}
+        {% if  session['id'] %}
+            {% if  session['info'] == 1 and session['argumentsA'] == 0 %}
+                <body>
+                    <h1 class="center">Please read the following information:</h1>
+                    <div class="frame">
+                        <br>
+                         <ul>
+                            <li> Tesla CEO Elon Musk has been a supporter of cryptocurrency for a long time.
+                            He does not shy away from expressing his views on Twitter.</li>
+                            <br>
+                            <li>Last year Tesla company of Elon Musk purchased 1.50 billion in bitcoin, for
+                            more flexibility to further diversify and maximize returns on their cash.</li>
+                            <br>
+                            <li>Investors and economists show growing interest in understanding the economics
+                            and the price mechanisms among cryptocurrencies.</li>
+                             <br>
+                            <li>Blockchains (the technology cryptocurrencies are based on) create a new investable
+                            class of assets in areas not previously available through financial channels.</li>
+                            <br>
+                            <li>Bitcoins are also found reliable for banking and other secure transactions
+                            because it develops a worldwide digital currency based on blockchain technology.</li>
+                            <br>
+                            <li>In 2021, El Salvador made waves by becoming the first country to make Bitcoin
+                            legal tender (residents can pay taxes and settle debts with it).</li>
+                            <br>
+                            <li>The advantages of cryptocurrencies include cheaper and faster money transfers
+                            and decentralized systems that do not collapse at a single point of failure.</li>
+                            <br>
+                            <li>In a study that was made by Joseph Altonji, Professor of Economics, he claimed
+                            that cryptocurrency removes central banks from managing the money supply.</li>
+                            <br>
+                            <li>Alberto Abadie head of the MIT Department of Economics, claims that blockchain and
+                            related technology will disrupt many industries, including finance and law.</li>
+                        </ul>
+                        <br>
+                        <br>
+                        <div class = "center">
+                           <button  onclick="window.location.href='opinion'" type="submit">NEXT </button>
+                        </div>
+                        <br>
+                        <br>
+                    </div>
+                </body>
+                {% else %}
+                    <body onload="window.location.href='error'">
 
-    </div>
+                    </body>
+            {% endif %}
+        {% endif %}
+        {% else %}
+            <body>
+                <div class="frame" style="color: #9C1A1C">
+                    Please log in with your entry code.
+                </div>
+            </body>
+    {% endif %}
 
 
 
-
-
-
-</body>
 </html>

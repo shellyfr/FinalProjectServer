@@ -5,33 +5,53 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/questions.css') }}"/>
+    <script type="text/javascript">
+        function disableBack() { window.history.forward(); }
+        setTimeout("disableBack()", 0);
+        window.onunload = function () { null };
+    </script>
 
 </head>
-<body>
-    <h1 class="center">Please read the following information:</h1>
-    <div class="frame">
-        <br>
-        <ul>
-           <li>Kylie Jenner has been a supporter of cryptocurrency for a long time and does not shy away
-            from expressing his views on Twitter.</li>
-            <br>
-            <li>Theater and Movie stars show growing interest in understanding the economics and the price
-            mechanisms among cryptocurrencies.</li>
-            <br>
-            <li>Anyone who understands blockchain technology (the technology cryptocurrencies are based on) will
-            make money and get rich quickly.</li>
-        </ul>
-        <br>
-        <br>
-        <div class = "center">
-            <button  onclick="window.location.href='opinion'" type="submit">NEXT </button>
-        </div>
-        <br>
-        <br>
-    </div>
 
+    {% if  session %}
+        {% if  session['id'] %}
+            {% if  session['info'] == 1 and session['argumentsD'] == 0 %}
+                <body>
+                    <h1 class="center">Please read the following information:</h1>
+                    <div class="frame">
+                        <br>
+                        <ul>
+                           <li>Kylie Jenner has been a supporter of cryptocurrency for a long time and does not shy away
+                            from expressing his views on Twitter.</li>
+                            <br>
+                            <li>Theater and Movie stars show growing interest in understanding the economics and the price
+                            mechanisms among cryptocurrencies.</li>
+                            <br>
+                            <li>Anyone who understands blockchain technology (the technology cryptocurrencies are based on) will
+                            make money and get rich quickly.</li>
+                        </ul>
+                        <br>
+                        <br>
+                        <div class = "center">
+                            <button  onclick="window.location.href='opinion'" type="submit">NEXT </button>
+                        </div>
+                        <br>
+                        <br>
+                    </div>
+                </body>
+                {% else %}
+                    <body onload="window.location.href='error'">
 
-
+                    </body>
+            {% endif %}
+        {% endif %}
+        {% else %}
+            <body>
+                <div class="frame" style="color: #9C1A1C">
+                    Please log in with your entry code.
+                </div>
+            </body>
+    {% endif %}
 
 
 </body>

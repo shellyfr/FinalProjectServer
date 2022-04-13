@@ -1,6 +1,7 @@
 from flask import Flask, render_template, flash, request, session,url_for, redirect
 from datetime import datetime
 from DB.db_Manager import DBManager
+# from user_agents import parse
 
 app = Flask(__name__)
 app.config.from_pyfile('script.py')
@@ -12,15 +13,24 @@ DB = DBManager()
 
 @app.route('/')
 def home():
-    # session.pop('page', None)
-    # session.pop('id', None)
-    # # session.pop('group', None)
-    # if session:
-    #     if session['page']:
-    #         if session['page'] != 1:
-    #             return redirect('/consent')
-    # session['page'] = 1
-    # return render_template("final_project.html")
+
+    session.pop('id', None)
+    session.pop('group', None)
+    session.pop('consent', None)
+    session.pop('instructions', None)
+    session.pop('disagree', None)
+    session.pop('position', None)
+    session.pop('info', None)
+    session.pop('consent', None)
+    session.pop('argumentsA', None)
+    session.pop('argumentsB', None)
+    session.pop('argumentsC', None)
+    session.pop('argumentsD', None)
+    session.pop('opinion', None)
+    session.pop('demo1', None)
+    session.pop('demo2', None)
+    session.pop('last', None)
+
     user = request.headers.get('User-Agent')
     start = datetime.now().strftime("%d-%b-%Y %H:%M:%S")
     print(start)
@@ -29,86 +39,125 @@ def home():
     return render_template("final_project.html")
 
 
+@app.route('/error')
+def error():
+    return render_template("error.html")
+
+
+@app.route('/errorHandle')
+def errorHandle():
+    if session['consent'] == 1 and session['instructions'] == 0:
+        return redirect('/instructions')
+    elif session['instructions'] == 1 and session['position'] == 0:
+        return redirect('/position')
+    elif session['position'] == 1 and session['info'] == 0:
+        return redirect('/info')
+    elif session['info'] == 1 and session['argumentsA'] == 0 and session['argumentsB'] == 0 and \
+            session['argumentsC'] == 0 and session['argumentsD'] == 0:
+        if session['group'] == 1:
+            return redirect('/1')
+        elif session['group'] == 2:
+            return redirect('/2')
+        elif session['group'] == 3:
+            return redirect('/3')
+        else:
+            return redirect('/4')
+    elif session['opinion'] == 0 and (session['argumentsA'] == 1 or session['argumentsB'] == 1 or \
+            session['argumentsC'] == 1 or session['argumentsD'] == 1):
+        return redirect('/opinion')
+    elif session['opinion'] == 1 and session['demographic1'] == 0:
+        return redirect('/demographic1')
+    elif session['demographic1'] == 1 and session['demographic2'] == 0:
+        return redirect('/demographic2')
+    elif session['demographic2'] == 1 and session['last_page'] == 0:
+        return redirect('/last_page')
+    # elif session['consent'] == 1 and session['disagree'] == 0:
+    #     return redirect('/consent')
+    return redirect('/')
+
+
 @app.route('/consent')
 def consent():
-    # if session['page'] == 1:
-    #     session['page'] = 2
-    #     return render_template("consent.html")
-    # return redirect('/instructions')
-        return render_template("consent.html")
-
+    return render_template("consent.html")
 
 
 @app.route('/Check',methods= ['POST'])
 def Check():
     agree=request.form['consent']
-    if agree=='agree':
+    if agree == 'agree':
+        session['consent'] = 1
         return redirect('/instructions')
     return redirect('/disagree')
 
 
 @app.route('/disagree')
 def disagree():
-    session.pop('page', None)
+
+    session['consent'] = 1
     return render_template("disagree.html")
 
 
 @app.route('/instructions')
 def instructions():
-    # if session['page'] == 2:
-    #     session['page'] = 3
-    #     return render_template("instructions.html")
-    return redirect('/position')
+    return render_template("instructions.html")
 
 
 @app.route('/position')
 def position():
-    # if session['page'] == 3:
-    #     session['page'] = 4
-    #     return render_template("position.html")
-    # return redirect('/info')
-
-
+    session['instructions'] = 1
     return render_template("position.html")
 
 
 @app.route('/info')
 def info():
+    session['position'] = 1
     return render_template("info.html")
 
 
 @app.route('/1')
 def arguments1():
+    session['info'] = 1
     return render_template("argumentsA.html")
 
 
 @app.route('/2')
 def arguments2():
+    session['info'] = 1
     return render_template("argumentsB.html")
 
 
 @app.route('/3')
 def arguments3():
+    session['info'] = 1
     return render_template("argumentsC.html")
 
 
 @app.route('/4')
 def arguments4():
+    session['info'] = 1
     return render_template("argumentsD.html")
-
-
-@app.route('/demographic1')
-def demographic1():
-    return render_template("demographic1.html")
-
-@app.route('/demographic2')
-def demographic2():
-    return render_template("demographic2.html")
 
 
 @app.route('/opinion')
 def opinion():
+    session['argumentsA'] = 1
+    session['argumentsB'] = 1
+    session['argumentsC'] = 1
+    session['argumentsD'] = 1
     return render_template("opinion.html")
+
+
+@app.route('/demographic1')
+def demographic1():
+    session['opinion'] = 1
+    return render_template("demographic1.html")
+
+
+@app.route('/demographic2')
+def demographic2():
+    session['demographic1'] = 1
+    return render_template("demographic2.html")
+
 
 
 
@@ -116,6 +165,11 @@ def opinion():
 def connect():
     entryCode = request.form['entryCode']
     num = DB.getFromCodes(entryCode)
+    print(num)
+
+    if num == False:
+        flash('The entry code is wrong, please try again')
+        return redirect('/')
     deviceDB = num[0][3]
     OperatingSystem=request.user_agent.platform.lower()
     if OperatingSystem.__contains__("windows")  or OperatingSystem.__contains__("macos") or OperatingSystem.__contains__("linux") :
@@ -123,9 +177,6 @@ def connect():
     elif OperatingSystem.__contains__('android') or OperatingSystem.__contains__('ios' ) or OperatingSystem.__contains__('blackberry OS')  or OperatingSystem.__contains__('Windows OS') or OperatingSystem.__contains__('symbian') or OperatingSystem.__contains__('os') or OperatingSystem.__contains__('Tizen'):
         entryDevice=0
 
-    if num == False:
-        flash('The entry code is wrong, please try again')
-        return redirect('/')
     group=num[0][1]
 
     if num[0][2] == 1:
@@ -137,6 +188,20 @@ def connect():
             print(OperatingSystem)
             session['id'] = entryCode
             session['group'] = group
+            session['consent'] = 0
+            session['instructions'] = 0
+            session['disagree'] = 0
+            session['position'] = 0
+            session['info'] = 0
+            session['argumentsA'] = 0
+            session['argumentsB'] = 0
+            session['argumentsC'] = 0
+            session['argumentsD'] = 0
+            session['opinion'] = 0
+            session['demo1'] = 0
+            session['demo2'] = 0
+            session['last'] = 0
+            session['page'] = 'page'
             return redirect('/consent')
         else:
             flash('Please enter from the device you were asked in the instructions')
@@ -205,6 +270,7 @@ def handleDemo2():
 
 @app.route('/last_page')
 def last_page():
+    session['demographic2'] = 1
     end_time = datetime.now().strftime("%H:%M:%S")
     DB.updateCodes(session['id'], end_time)
     session.pop('id', None)

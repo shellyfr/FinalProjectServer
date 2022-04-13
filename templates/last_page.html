@@ -7,7 +7,26 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/questions.css') }}"/>
 
 </head>
-<body>
-        <h2>Thank you for participation! </h2>
-</body>
+
+        {% if  session %}
+            {% if  session['id'] %}
+                {% if  session['consent'] == 0 %}
+                    <body>
+                        <h2>Thank you for participation! </h2>
+                        <h2> Please note that all the information presented to you in this task is not supported by real sources</h2>
+                </body>
+                {% else %}
+                    <body onload="window.location.href='error'">
+
+                    </body>
+            {% endif %}
+        {% endif %}
+        {% else %}
+            <body>
+                <div class="frame" style="color: #9C1A1C">
+                    Please log in with your entry code.
+                </div>
+            </body>
+    {% endif %}
+
 </html>
