@@ -5,14 +5,14 @@ body {
     /*color: #0d47a1;*/
     margin-top: 5%;
     margin-left: 5%;
-    font-family: Century;
+    font-family: 'News Cycle', sans-serif;
 
 }
 
 button{
     border-radius: 20%;
     /*color: #0d47a1;*/
-    font-family: Century;
+    font-family: 'News Cycle', sans-serif;
     text-align: center;
 
     background-color: #4b87c1;

@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>BGU Task</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/questions.css') }}"/>
     <script type="text/javascript">
         function disableBack() { window.history.forward(); }
@@ -14,7 +14,7 @@
 
     {% if  session %}
         {% if  session['id'] %}
-            {% if session['demographic1'] == 1 and session['demographic2'] == 0 %}
+            {% if session['demo1'] == 1 and session['demo2'] == 0 %}
                 <body>
                     <div class="frame">
                         <h2>General questions about the environment in which you performed the experiment:</h2>

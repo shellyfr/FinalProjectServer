@@ -3,18 +3,18 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>BGU Task</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/questions.css') }}"/>
 
 </head>
 
         {% if  session %}
             {% if  session['id'] %}
-                {% if  session['consent'] == 0 %}
+                {% if session['demographic2'] == 1 and session['last_page'] == 0 %}
                     <body>
                         <h2>Thank you for participation! </h2>
-                        <h2> Please note that all the information presented to you in this task is not supported by real sources</h2>
-                </body>
+                        <h2> Please note that all information presented to you in this task is not reliable.</h2>
+                    </body>
                 {% else %}
                     <body onload="window.location.href='error'">
 

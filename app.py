@@ -49,6 +49,8 @@ def error():
 
 @app.route('/errorHandle')
 def errorHandle():
+    print(session['opinion'])
+    print(session['demographic1'])
     if session['consent'] == 1 and session['instructions'] == 0:
         return redirect('/instructions')
     elif session['instructions'] == 1 and session['position'] == 0:
@@ -68,14 +70,14 @@ def errorHandle():
     elif session['opinion'] == 0 and (session['argumentsA'] == 1 or session['argumentsB'] == 1 or \
             session['argumentsC'] == 1 or session['argumentsD'] == 1):
         return redirect('/opinion')
-    elif session['opinion'] == 1 and session['demographic1'] == 0:
+    elif session['opinion'] == 1 and session['demo1'] == 0:
         return redirect('/demographic1')
-    elif session['demographic1'] == 1 and session['demographic2'] == 0:
-        return redirect('/demographic2')
-    elif session['demographic2'] == 1 and session['last_page'] == 0:
+    elif session['demo1'] == 1 and session['demo2'] == 0:
+        return redirect('/demo2')
+    elif session['demo2'] == 1 and session['last_page'] == 0:
         return redirect('/last_page')
-    # elif session['consent'] == 1 and session['disagree'] == 0:
-    #     return redirect('/consent')
+    elif session['consent'] == 1 and session['disagree'] == 0:
+        return redirect('/consent')
     return redirect('/')
 
 
@@ -158,7 +160,7 @@ def demographic1():
 
 @app.route('/demographic2')
 def demographic2():
-    session['demographic1'] = 1
+    session['demo1'] = 1
     return render_template("demographic2.html")
 
 
@@ -234,6 +236,10 @@ def handleposition():
 
 @app.route('/handleOpinion',methods= ['POST'])
 def handleOpinion():
+    # session['argumentsA'] = 1
+    # session['argumentsB'] = 1
+    # session['argumentsC'] = 1
+    # session['argumentsD'] = 1
     o1 = request.form['o1']
     o4 = request.form['o4']
     print(o1)
@@ -248,6 +254,7 @@ def handleOpinion():
 
 @app.route('/handleDemo1',methods= ['POST'])
 def handleDemo1():
+    # session['opinion'] = 1
     age = request.form['age']
     gender = request.form['gender']
     education = request.form['education']
@@ -262,6 +269,7 @@ def handleDemo1():
 
 @app.route('/handleDemo2', methods=['POST'])
 def handleDemo2():
+    # session['demographic1'] = 1
     myspace = request.form['myspace']
     space_scale = request.form['space_scale']
     space_private = request.form['space_private']
@@ -274,7 +282,7 @@ def handleDemo2():
 
 @app.route('/last_page')
 def last_page():
-    session['demographic2'] = 1
+    session['demo2'] = 1
     end_time = datetime.now().strftime("%H:%M:%S")
     DB.updateCodes(session['id'], end_time)
     session.pop('id', None)
