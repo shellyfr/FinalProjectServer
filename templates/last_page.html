@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/questions.css') }}"/>
 
 </head>
-
         {% if  session %}
             {% if  session['id'] %}
                 {% if session['demo2'] == 1 and session['last_page'] == 0 %}
@@ -15,18 +14,18 @@
                         <h2>Thank you for participation! </h2>
                         <h2> Please note that all information presented to you in this task is not reliable.</h2>
                     </body>
-                {% else %}
-                    <body onload="window.location.href='error'">
+                    {% else %}
+                        <body onload="window.location.href='error'">
 
-                    </body>
+                        </body>
+                {% endif %}
             {% endif %}
+            {% else %}
+                <body>
+                    <div class="frame" style="color: #9C1A1C">
+                        Please log in with your entry code.
+                    </div>
+                </body>
         {% endif %}
-        {% else %}
-            <body>
-                <div class="frame" style="color: #9C1A1C">
-                    Please log in with your entry code.
-                </div>
-            </body>
-    {% endif %}
 
 </html>

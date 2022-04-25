@@ -13,9 +13,13 @@ class DBManager:
             return False
         return num
 
-    def updateCodes(self, id, end_time1):
-        script.update_db("UPDATE codes SET isfin = 1 WHERE id=" + id + ";")
-        script.update_db("UPDATE codes SET end_time ='"+end_time1+"'  WHERE id= " + id + ";")
+    def updateCodes(self, id, time1, x):
+        if x=='1':
+            script.update_db("UPDATE codes SET isfin = 1 WHERE id=" + id + ";")
+            script.update_db("UPDATE codes SET end_time ='"+time1+"'  WHERE id= " + id + ";")
+        else:
+            script.update_db("UPDATE codes SET start_time ='" + time1 + "'  WHERE id= " + id + ";")
+
 
     def insertPosition(self, id, snew1, snew2, snew3, snew4, snew5, snew6):
         script.insertDB("INSERT INTO positions(entry_code, s1, s2, s3, s4, s5, s6 ) "

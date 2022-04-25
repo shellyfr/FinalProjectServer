@@ -29,7 +29,7 @@ def home():
     session.pop('opinion', None)
     session.pop('demo1', None)
     session.pop('demo2', None)
-    session.pop('last', None)
+    session.pop('last_page', None)
 
     user = request.headers.get('User-Agent')
     # user_agent = parse(user)
@@ -49,8 +49,6 @@ def error():
 
 @app.route('/errorHandle')
 def errorHandle():
-    print(session['opinion'])
-    print(session['demographic1'])
     if session['consent'] == 1 and session['instructions'] == 0:
         return redirect('/instructions')
     elif session['instructions'] == 1 and session['position'] == 0:
@@ -73,7 +71,7 @@ def errorHandle():
     elif session['opinion'] == 1 and session['demo1'] == 0:
         return redirect('/demographic1')
     elif session['demo1'] == 1 and session['demo2'] == 0:
-        return redirect('/demo2')
+        return redirect('/demographic2')
     elif session['demo2'] == 1 and session['last_page'] == 0:
         return redirect('/last_page')
     elif session['consent'] == 1 and session['disagree'] == 0:
@@ -104,6 +102,8 @@ def disagree():
 
 @app.route('/instructions')
 def instructions():
+    start_time = datetime.now().strftime("%H:%M:%S")
+    DB.updateCodes(session['id'], start_time,'2')
     return render_template("instructions.html")
 
 
@@ -206,8 +206,7 @@ def connect():
             session['opinion'] = 0
             session['demo1'] = 0
             session['demo2'] = 0
-            session['last'] = 0
-            session['page'] = 'page'
+            session['last_page'] = 0
             return redirect('/consent')
         else:
             flash('Please enter from the device you were asked in the instructions')
@@ -225,7 +224,7 @@ def handleposition():
     s5 = request.form['s5']
     s6 = request.form['s6']
     print(s1)
-    if s1 == '-1' or  s2 == '-1' or s3 == '-1' or s4 == '-1' or s5 == '-1' or s6 == '-1':
+    if s1 == '-1' or s2 == '-1' or s3 == '-1' or s4 == '-1' or s5 == '-1' or s6 == '-1':
         print('Im in the if')
         flash("Please mark your level of agreement for all the statement")
         return redirect('/position')
@@ -236,10 +235,6 @@ def handleposition():
 
 @app.route('/handleOpinion',methods= ['POST'])
 def handleOpinion():
-    # session['argumentsA'] = 1
-    # session['argumentsB'] = 1
-    # session['argumentsC'] = 1
-    # session['argumentsD'] = 1
     o1 = request.form['o1']
     o4 = request.form['o4']
     print(o1)
@@ -269,7 +264,6 @@ def handleDemo1():
 
 @app.route('/handleDemo2', methods=['POST'])
 def handleDemo2():
-    # session['demographic1'] = 1
     myspace = request.form['myspace']
     space_scale = request.form['space_scale']
     space_private = request.form['space_private']
@@ -284,8 +278,8 @@ def handleDemo2():
 def last_page():
     session['demo2'] = 1
     end_time = datetime.now().strftime("%H:%M:%S")
-    DB.updateCodes(session['id'], end_time)
-    session.pop('id', None)
+    DB.updateCodes(session['id'], end_time, '1')
+    # session.pop('id', None)
     return render_template("last_page.html")
 
 
