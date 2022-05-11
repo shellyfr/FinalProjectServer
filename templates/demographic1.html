@@ -26,7 +26,7 @@
                         {% endwith %}
 
                     <div class="frame">
-                        <h2>General and demographic questions:</h2>
+                        <h2>Demographic questions:</h2>
                             <form action ='/handleDemo1' method="POST">
                                 <h3>What is your age?</h3>
                                 <input type="radio" id="20" name="age" value="20" required>
@@ -38,7 +38,7 @@
                                 <input type="radio" id="50" name="age" value="50">
                                 <label for="50">50+</label><br>
 
-                                <h3>What gender do you identify as?</h3>
+                                <h3>What is your gender?</h3>
                                 <input type="radio" id="female" name="gender" value="female" required>
                                 <label for="female">Female</label><br>
                                 <input type="radio" id="male" name="gender" value="male">
@@ -47,7 +47,7 @@
                                 <label for="other">Other</label><br>
 
 
-                                <h3>What is the highest degree or level of education you have completed?</h3>
+                                <h3>What is your level of education?</h3>
                                 <input type="radio" id="elementary" name="education" value="elementary" required>
                                 <label for="elementary">Elementary</label><br>
                                 <input type="radio" id="school" name="education" value="school">
@@ -66,44 +66,46 @@
                                 <input type="radio" id="0" name="income" value="0" required>
                                 <label for="0">0-$25,000</label><br>
                                 <input type="radio" id="25" name="income" value="25">
-                                <label for="25">$25,000 - $50,000</label><br>
+                                <label for="25">$25,001 - $50,000</label><br>
                                 <input type="radio" id="50income" name="income" value="50">
-                                <label for="50income">$50,000 - $100,000</label><br>
+                                <label for="50income">$50,001 - $100,000</label><br>
                                 <input type="radio" id="100" name="income" value="100">
-                                <label for="100">$100,000+</label><br>
+                                <label for="100">$100,001+</label><br>
 
 
-                                <h3>What is your current employment status?</h3>
-                                <input type="radio" id="full" name="employment" value="full" required>
-                                <label for="full">Employed Full-Time</label><br>
-                                <input type="radio" id="part" name="employment" value="part">
-                                <label for="part">Employed Part-Time</label><br>
-                                <input type="radio" id="seeking " name="employment" value="seeking">
-                                <label for="seeking">Seeking opportunities</label><br>
-                                <input type="radio" id="retired" name="employment" value="retired">
-                                <label for="retired">Retired</label><br>
+{#                                <h3>What is your current employment status?</h3>#}
+{#                                <input type="radio" id="full" name="employment" value="full" required>#}
+{#                                <label for="full">Employed Full-Time</label><br>#}
+{#                                <input type="radio" id="part" name="employment" value="part">#}
+{#                                <label for="part">Employed Part-Time</label><br>#}
+{#                                <input type="radio" id="seeking " name="employment" value="seeking">#}
+{#                                <label for="seeking">Seeking opportunities</label><br>#}
+{#                                <input type="radio" id="retired" name="employment" value="retired">#}
+{#                                <label for="retired">Retired</label><br>#}
 
 
-                                <h3>How many hours a day do you on average use a computer (not for work)?</h3>
+                                <h3>How many hours a day do you use a computer for non-work purposes?</h3>
                                 <input type="radio" id="0computer" name="computer" value="0" required>
                                 <label for="0computer">0-2</label><br>
-                                <input type="radio" id="2" name="computer" value="2">
-                                <label for="2">2-4</label><br>
-                                <input type="radio" id="4" name="computer" value="4">
-                                <label for="4">4+</label><br>
+                                <input type="radio" id="3" name="computer" value="3">
+                                <label for="3">3-5</label><br>
+                                <input type="radio" id="5" name="computer" value="5">
+                                <label for="5">5+</label><br>
 
 
-                                <h3>How many hours a day on average do you use a cell phone (not for work)?</h3>
+                                <h3>How many hours a day do you use a mobile phone for non-work purposes?</h3>
                                 <input type="radio" id="0phone" name="phone" value="0" required>
                                 <label for="0phone">0-2</label><br>
-                                <input type="radio" id="2phone" name="phone" value="2">
-                                <label for="2phone">2-4</label><br>
-                                <input type="radio" id="4phone" name="phone" value="4">
-                                <label for="4phone">4+</label>
+                                <input type="radio" id="3phone" name="phone" value="3">
+                                <label for="3phone">3-5</label><br>
+                                <input type="radio" id="5phone" name="phone" value="5">
+                                <label for="5phone">5+</label>
                                 <br>
                                 <br>
                                 <br>
-                                <button   type="submit">NEXT </button>
+                                <div class = "center">
+                                    <button   type="submit">NEXT </button>
+                                </div>
                             </form>
                         <br>
                         <br>

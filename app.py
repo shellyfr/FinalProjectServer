@@ -116,30 +116,40 @@ def position():
 @app.route('/info')
 def info():
     session['position'] = 1
+    start_argu = datetime.now().strftime("%H:%M:%S")
+    DB.updateCodes(session['id'], start_argu,'3')
     return render_template("info.html")
 
 
 @app.route('/1')
 def arguments1():
     session['info'] = 1
+    end_argu = datetime.now().strftime("%H:%M:%S")
+    DB.updateCodes(session['id'], end_argu,'4')
     return render_template("argumentsA.html")
 
 
 @app.route('/2')
 def arguments2():
     session['info'] = 1
+    end_argu = datetime.now().strftime("%H:%M:%S")
+    DB.updateCodes(session['id'], end_argu,'4')
     return render_template("argumentsB.html")
 
 
 @app.route('/3')
 def arguments3():
     session['info'] = 1
+    end_argu = datetime.now().strftime("%H:%M:%S")
+    DB.updateCodes(session['id'], end_argu,'4')
     return render_template("argumentsC.html")
 
 
 @app.route('/4')
 def arguments4():
     session['info'] = 1
+    end_argu = datetime.now().strftime("%H:%M:%S")
+    DB.updateCodes(session['id'], end_argu,'4')
     return render_template("argumentsD.html")
 
 
@@ -224,7 +234,7 @@ def handleposition():
     s5 = request.form['s5']
     s6 = request.form['s6']
     print(s1)
-    if s1 == '-1' or s2 == '-1' or s3 == '-1' or s4 == '-1' or s5 == '-1' or s6 == '-1':
+    if s1 == '0' or s2 == '0' or s3 == '0' or s4 == '0' or s5 == '0' or s6 == '0':
         print('Im in the if')
         flash("Please mark your level of agreement for all the statement")
         return redirect('/position')
@@ -238,7 +248,7 @@ def handleOpinion():
     o1 = request.form['o1']
     o4 = request.form['o4']
     print(o1)
-    if o1 == '-1' or o4 == '-1':
+    if o1 == '0' or o4 == '0':
         print('Im in the if')
         flash("Please mark your level of agreement for all the statement")
         return redirect('/opinion')
@@ -254,24 +264,24 @@ def handleDemo1():
     gender = request.form['gender']
     education = request.form['education']
     income = request.form['income']
-    employment = request.form['employment']
+    # employment = request.form['employment']
     computer = request.form['computer']
     phone = request.form['phone']
     print(age)
-    DB.insertDemo1(session['id'], age, gender,education, income,employment,computer, phone)
+    DB.insertDemo1(session['id'], age, gender,education, income,computer, phone)
     return redirect('/demographic2')
 
 
 @app.route('/handleDemo2', methods=['POST'])
 def handleDemo2():
     myspace = request.form['myspace']
-    space_scale = request.form['space_scale']
+    # space_scale = request.form['space_scale']
     space_private = request.form['space_private']
     space_size = request.form['space_size']
     noise = request.form['noise']
     dark = request.form['dark']
     density = request.form['density']
-    DB.insertDemo2(session['id'], myspace, space_scale,space_private, space_size, noise, dark, density)
+    DB.insertDemo2(session['id'], myspace, space_private, space_size, noise, dark, density)
     return redirect('/last_page')
 
 @app.route('/last_page')

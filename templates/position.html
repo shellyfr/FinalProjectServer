@@ -17,8 +17,8 @@
         {% if  session['id'] %}
             {% if  session['instructions'] == 1 and session['position'] == 0 %}
                 <body>
-                    <h1 class="center"> Please indicate your level of agreement on each of the following statements: </h1>
-                    <h2 class="center">(On a scale 0 to 100. 0 indicates I strongly disagree and 100 indicate I strongly agree.) </h2>
+                    <h1 class="center"> Please indicate your level of agreement with each of the following statements: </h1>
+                    <h2 class="center">(On a scale of 1-100) </h2>
 
                         {% with messages2 = get_flashed_messages() %}
                             {% if messages2 %}
@@ -31,38 +31,57 @@
                     <div class="frame">
                         <form action ='/handlePostions' method="POST">
                          <h3>1.	Investing in virtual currencies is beneficial.</h3>
+                            <div class="box-minmax">
+                                <span>Disagree</span><span>Agree</span>
+                            </div>
                             <div class="range-wrap">
-                                <input type="range" class="range" name="s1" min="-1" max="100" value="-1">
+                                <input type="range" class="range" name="s1" min="0" max="100" value="0">
+                                <output class="bubble"></output>
+
+                            </div>
+
+                         <h3>2.	I trust my bank to handle my financial investments (portfolio).</h3>
+                             <div class="box-minmax">
+                                <span>Disagree</span><span>Agree</span>
+                             </div>
+                            <div class="range-wrap">
+                                <input type="range" class="range" name="s2" min="0" max="100" value="0">
                                 <output class="bubble"></output>
                             </div>
 
-                         <h3>2.	I trust my banking company to handle my financial investments (portfolio).</h3>
+                         <h3>3.	Taking a student loan is the smartest choice to fund college education.</h3>
+                            <div class="box-minmax">
+                                <span>Disagree</span><span>Agree</span>
+                            </div>
                             <div class="range-wrap">
-                                <input type="range" class="range" name="s2" min="-1" max="100" value="-1">
+                                <input type="range" class="range" name="s3" min="0" max="100" value="0">
                                 <output class="bubble"></output>
                             </div>
 
-                         <h3>3.	Taking a student lawn is the smartest choice to fund college education.</h3>
+                         <h3>4.	Holding crypto currencies is a safe investment.</h3>
+                            <div class="box-minmax">
+                                <span>Disagree</span><span>Agree</span>
+                            </div>
                             <div class="range-wrap">
-                                <input type="range" class="range" name="s3" min="-1" max="100" value="-1">
+                                <input type="range" class="range" name="s4" min="0" max="100" value="0">
                                 <output class="bubble"></output>
                             </div>
 
-                         <h3>4.	Holding one/several different crypto currencies is a safe investment.</h3>
-                            <div class="range-wrap">
-                                <input type="range" class="range" name="s4" min="-1" max="100" value="-1">
-                                <output class="bubble"></output>
+                         <h3>5.	Holding multiple credit cards is a good financial decision.</h3>
+                            <div class="box-minmax">
+                                <span>Disagree</span><span>Agree</span>
                             </div>
-
-                         <h3>5.	Holding multiple credit cards is good financial decision.</h3>
                             <div class="range-wrap">
-                                <input type="range" class="range" name="s5" min="-1" max="100" value="-1">
+                                <input type="range" class="range" name="s5" min="0" max="100" value="0">
                                 <output class="bubble"></output>
                             </div>
 
                          <h3>6.	People should have a financial advisor.</h3>
+                            <div class="box-minmax">
+                                <span>Disagree</span><span>Agree</span>
+                            </div>
                             <div class="range-wrap">
-                                <input type="range" class="range" name="s6" min="-1" max="100" value="-1">
+                                <input type="range" class="range" name="s6" min="0" max="100" value="0">
                                 <output class="bubble"></output>
                             </div>
                             <div class = "center">

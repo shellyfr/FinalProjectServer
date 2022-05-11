@@ -17,8 +17,8 @@
             {% if session['opinion'] == 0 and (session['argumentsA'] == 1 or session['argumentsB'] == 1 or
             session['argumentsC'] == 1 or session['argumentsD'] == 1) %}
                 <body>
-                    <h1 class="center"> Please indicate your level of agreement on each of the following statements: </h1>
-                    <h2 class="center">(On a scale 0 to 100. 0 indicates I strongly disagree and 100 indicate I strongly agree.) </h2>
+                    <h1 class="center"> Please indicate your level of agreement with each of the following statements: </h1>
+                    <h2 class="center">(On a scale of 1-100) </h2>
 
                          {% with messages3 = get_flashed_messages() %}
                             {% if messages3 %}
@@ -31,15 +31,21 @@
                     <div class="frame">
                         <form action ='/handleOpinion' method="POST">
                             <h3>Investing in virtual currencies is beneficial.</h3>
+                                <div class="box-minmax">
+                                    <span>Disagree</span><span>Agree</span>
+                                </div>
                                 <div class="range-wrap">
-                                    <input type="range" class="range" name="o1" min="-1" max="100" value="-1">
+                                    <input type="range" class="range" name="o1" min="0" max="100" value="0">
                                     <output class="bubble"></output>
                                 </div>
-                                <h3>Holding one/several different crypto currencies is a safe investment.</h3>
-                                <div class="range-wrap">
-                                    <input type="range" class="range" name="o4" min="-1" max="100" value="-1">
-                                    <output class="bubble"></output>
-                                </div>
+                            <h3>Holding crypto currencies is a safe investment.</h3>
+                                    <div class="box-minmax">
+                                        <span>Disagree</span><span>Agree</span>
+                                    </div>
+                                    <div class="range-wrap">
+                                        <input type="range" class="range" name="o4" min="0" max="100" value="0">
+                                        <output class="bubble"></output>
+                                    </div>
                             <div class = "center">
                                 <button type="submit">NEXT </button>
                             </div>

@@ -18,7 +18,7 @@ button{
     background-color: #4b87c1;
     color: #FFFFFF;
     justify-content: center;
-  align-items: center;
+    align-items: center;
     border-style: none;
     font-size: 100%;
     transition: color 100ms;
@@ -59,7 +59,7 @@ h4.center{
 
 label{
     color: black;
-    font-size: larger ;
+    /*font-size: larger ;*/
 }
 p{
     color: black;
@@ -108,7 +108,41 @@ div.frame{
   left: 50%;
 }
 
+.box-minmax{
 
+  margin-top: 3%;
+  margin-right: 20%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #000000;
+
+}
+
+.box-demo{
+
+  /*margin-top: 1%;*/
+  margin-right: 45%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  color: #000000;
+
+}
+
+.qu-box{
+
+  margin-right: 45%;
+  /*margin-left: 10%;*/
+  text-align: center;
+  vertical-align: baseline;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  color: #000000;
+
+}
 @media only screen and (max-width: 600px) {
     div.frame{
     border-style: groove;
