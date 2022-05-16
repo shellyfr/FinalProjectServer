@@ -133,7 +133,6 @@ div.frame{
 .qu-box{
 
   margin-right: 45%;
-  /*margin-left: 10%;*/
   text-align: center;
   vertical-align: baseline;
   align-items: center;
@@ -141,18 +140,48 @@ div.frame{
   justify-content: space-between;
   font-size: 16px;
   color: #000000;
+    /*align-content: center;*/
 
 }
 @media only screen and (max-width: 600px) {
-    div.frame{
-    border-style: groove;
-    border-radius: 5%;
-    padding-left: 5%;
-    padding-right: 5%;
-    margin-right: 5%;
-    margin-left: 3%;
+    div.frame {
+        border-style: groove;
+        border-radius: 5%;
+        padding-left: 5%;
+        padding-right: 5%;
+        margin-right: 5%;
+        margin-left: 3%;
 
+
+    }
+.box-demo{
+
+
+  margin-right: 1%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  color: #000000;
+    align-items: baseline;
+    align-content: space-around;
 
 }
+
+.qu-box{
+
+  margin-right: 1%;
+  text-align: center;
+  vertical-align: baseline;
+  align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #000000;
+    align-content: center;
+
+}
+    .small{
+        font-size: 12px;
+    }
 
  }

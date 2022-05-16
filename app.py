@@ -276,12 +276,12 @@ def handleDemo1():
 def handleDemo2():
     myspace = request.form['myspace']
     # space_scale = request.form['space_scale']
-    space_private = request.form['space_private']
+    # space_private = request.form['space_private']
     space_size = request.form['space_size']
     noise = request.form['noise']
     dark = request.form['dark']
     density = request.form['density']
-    DB.insertDemo2(session['id'], myspace, space_private, space_size, noise, dark, density)
+    DB.insertDemo2(session['id'], myspace, space_size, noise, dark, density)
     return redirect('/last_page')
 
 @app.route('/last_page')

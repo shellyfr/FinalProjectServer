@@ -38,7 +38,7 @@ class DBManager:
                         "VALUES('%s', '%s' , '%s','%s', '%s', '%s', '%s')" %
                         (id, age1, gender1,education1, income1,computer1, phone1))
 
-    def insertDemo2(self, id, myspace1, space_private1, space_size1,noise1,dark1, density1):
-        script.insertDB("INSERT INTO demografic2(entry_code, myspace, space_private, space_size,noise,dark, density ) "
-                        "VALUES('%s', '%s' , '%s','%s', '%s', '%s', '%s')" %
-                        (id, myspace1, space_private1, space_size1,noise1,dark1, density1))
+    def insertDemo2(self, id, myspace1,  space_size1,noise1,dark1, density1):
+        script.insertDB("INSERT INTO demografic2(entry_code, myspace,  space_size,noise,dark, density ) "
+                        "VALUES('%s', '%s' , '%s','%s', '%s', '%s')" %
+                        (id, myspace1, space_size1,noise1,dark1, density1))
